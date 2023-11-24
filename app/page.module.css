@@ -1,1 +1,8 @@
-
+.main {
+    position: relative;
+    top: 110px;
+    left: 160px;
+    width: 1120px;
+    height: 702px;
+    border: 1px solid red;
+}

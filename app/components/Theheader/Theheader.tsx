@@ -1,4 +1,4 @@
-import styles from '@/app/components/theheader.module.css';
+import styles from '@/app/components/Theheader/theheader.module.css';
 import { montserrat } from '@/app/layout';
 import Link from 'next/link';
 import SvgUser from '@/public/svgComponents/svgUser';
