@@ -8,7 +8,7 @@ import SvgCart from '@/public/svgComponents/svgCart';
 
 export default function Theheader() {
     return (
-        <header>
+        <header className={styles.header}>
             <nav className={styles.navigation}>
                 <h1 className={montserrat.className+' '+styles.logo}>Bookshop</h1>
                 <ul className={montserrat.className+' '+styles.navLinks}>

@@ -1,6 +1,7 @@
 .navigation {
     position: fixed;
     top: 0px;
+    left: 40px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -8,6 +9,7 @@
     height: 116px;
     background-color: white;
     z-index: 1;
+    padding-left: 15px;
     border: 1px solid;
 }
 

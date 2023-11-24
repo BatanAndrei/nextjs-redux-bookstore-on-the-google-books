@@ -1,8 +1,9 @@
 .main {
     position: relative;
     top: 110px;
-    left: 160px;
+    left: 190px;
     width: 1120px;
     height: 702px;
+    background-color: #FFE0E2;
     border: 1px solid red;
 }
