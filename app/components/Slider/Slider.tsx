@@ -8,36 +8,48 @@ import { IdataSlider } from '@/app/types/typesSlider';
 
 
 export default function Slider() {
-    const [items, setItems] = useState<IdataSlider[]>(sliderData);
-    const [slide, setSlide] = useState<number>(0);
 
-    const changeSlide = (direction = 1) => {   //устанавливает в sliderNumber = 2 или 0, 1, 2;
-        let sliderNumber = 0;
-
-        if(slide + direction < 0) {
-            sliderNumber = items.length - 1; // 2
-        } else {
-            sliderNumber = (slide + direction) % items.length; // 0, 1, 2;
+    const [images, setImages] = useState<IdataSlider[]>(sliderData);
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    console.log(currentIndex)
+    const autoPlay = () => {
+        if(currentIndex !== images.length - 1) {
+            setCurrentIndex((prev) => prev + 1);
+        }else if(currentIndex === images.length - 1) {
+            setCurrentIndex(0);
         }
-    
-        setSlide(sliderNumber); // slide === sliderNumber;
     }
-
-    const goToSlide = (number: number) => {  
-        setSlide(number % items.length);  // устанавливает остаток тн деления в slide
-    };
-
-    useEffect(() => {
-
+useEffect(() => {
     setInterval(() => {
-        changeSlide(1);
-        }, 5000);
-    
-    }, [slide]);
+        //autoPlay()
+        }, 1000);
+    }, []); 
+
+    const moveDote = (index: number) => {
+        setCurrentIndex(index)
+    }
 
     return (
         <div>
-            {items.map((item, index) => <div key={item.id} className={slide === index ? styles.activeSlide : styles.positionSlide}><Image src={item.image} alt={item.image} key={item.id} width={1120} height={702} /></div>)}
+            {images.map((item, itemIndex) => {
+
+                return (
+                    <div className={currentIndex === itemIndex ? styles.positionActive : styles.positionSlide} key={item.id}>
+                        <Image src={item.image} alt={item.image} width={1120} height={702}></Image>
+                    </div>
+                )
+    })}
+        <div className={styles.containerDots}>
+            {Array.from({length: 3}).map((item, index) => {
+                return (
+                    <div key={index} onClick={() => moveDote(index)}
+                    className={currentIndex ===index ? styles.activeDote : styles.dot}
+                    >
+                    </div>
+                )
+            })}
+        </div>
+        <button className={styles.button} onClick={autoPlay}>Click</button>
         </div>
     )
 }

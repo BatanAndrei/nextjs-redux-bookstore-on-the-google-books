@@ -1,3 +1,4 @@
+
 import styles from './page.module.css';
 import Slider from '@/app/components/Slider/Slider';
 import promo_2 from '@/public/images/promo_2.png';
@@ -7,6 +8,7 @@ import Image from 'next/image';
 
 
 export default function HomePage() {
+
     return (
         <div className={styles.main}>
             <div className={styles.container_slider}><Slider /></div>
