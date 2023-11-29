@@ -1,6 +1,6 @@
 "use client";
 
-import styles from '@/app/components/FilterBookCategory/filterBookCategory.module.css';
+import styles from './filterBookCategory.module.css';
 import { arreyArticles } from '@/app/datas/categoryData';
 import { useState } from 'react';
 import { montserrat } from '@/app/layout';

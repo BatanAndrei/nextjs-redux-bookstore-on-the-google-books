@@ -43,7 +43,7 @@
     top: 17PX;
     width: 12px;
     height: 12px;
-    background-image: url(../../../public/Dotgrey.svg);
+    background-image: url(../../public/Dotgrey.svg);
     cursor: pointer;
 }
 
@@ -52,7 +52,7 @@
     top: 17PX;
     width: 12px;
     height: 12px;
-    background-image: url(../../../public/Dotdarkgrey.svg);
+    background-image: url(../../public/Dotdarkgrey.svg);
     cursor: pointer;
 }
 
