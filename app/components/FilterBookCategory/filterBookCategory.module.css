@@ -39,3 +39,13 @@
     color: #1C2A39;
     list-style: inside;
 }
+
+.showecaseBooks {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    left: -60px;
+    width: 964px;
+    max-height: 10146px;
+    border: 1px solid;
+}

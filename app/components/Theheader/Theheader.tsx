@@ -12,7 +12,7 @@ export default function Theheader() {
             <nav className={styles.navigation}>
                 <h1 className={montserrat.className+' '+styles.logo}>Bookshop</h1>
                 <ul className={montserrat.className+' '+styles.navLinks}>
-                    <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems} href="">books</Link></li>
+                    <li className={styles.navLinksItemBooks}><Link className={styles.navLinksDecorationItems} href="">books</Link></li>
                     <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems} href="">audiobooks</Link></li>
                     <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems} href="">Stationery & gifts</Link></li>
                     <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems} href="">blog</Link></li>

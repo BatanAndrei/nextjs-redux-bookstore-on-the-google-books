@@ -17,7 +17,7 @@ export default function HomePage() {
                 <Link className={styles.promoLink} href=""><div className={styles.promo1}><Image src={promo_1} alt='banner_1' width={149} height={204} /></div></Link>
                 <Link className={styles.promoLink} href=""><div className={styles.promo2}><Image src={promo_2} alt='banner_1' width={137} height={237} /></div></Link>
             </div>
-            <div><FilterBookCategory /></div>
+            <FilterBookCategory />
         </div>
     )
 }
