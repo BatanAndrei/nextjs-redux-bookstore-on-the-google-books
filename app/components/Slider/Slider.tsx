@@ -14,16 +14,17 @@ export default function Slider() {
     console.log(currentIndex)
     const autoPlay = () => {
         if(currentIndex !== images.length - 1) {
-            setCurrentIndex((prev) => prev + 1);
+            setCurrentIndex(currentIndex + 1);
+            //setCurrentIndex((prev) => prev + 1);
         }else if(currentIndex === images.length - 1) {
             setCurrentIndex(0);
         }
     }
 useEffect(() => {
     setInterval(() => {
-        //autoPlay()
-        }, 1000);
-    }, []); 
+        autoPlay()
+        }, 3000);
+    }, [currentIndex]); 
 
     const moveDote = (index: number) => {
         setCurrentIndex(index)
