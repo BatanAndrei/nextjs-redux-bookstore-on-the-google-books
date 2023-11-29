@@ -12,19 +12,3 @@ export const sliderData = [{
     image: '/../../images/banner_3.png',
 }];
 
-export const arreyArticles = ['Architecture',
-    'Art & Fashion',
-    'Biography',
-    'Business',
-    'Crafts & Hobbies',
-    'Drama',
-    'Fiction',
-    'Food & Drink',
-    'Health & Wellbeing',
-    'History & Politics',
-    'Humor',
-    'Poetry',
-    'Psychology',
-    'Science',
-    'Technology',
-    'Travel & Maps'];
