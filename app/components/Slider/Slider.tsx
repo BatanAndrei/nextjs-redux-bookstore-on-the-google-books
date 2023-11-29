@@ -31,7 +31,7 @@ useEffect(() => {
     }
 
     return (
-        <div>
+        <>
             {images.map((item, itemIndex) => {
 
                 return (
@@ -42,7 +42,7 @@ useEffect(() => {
     })}
             <div className={styles.containerDots}>
                 {Array.from({length: 3}).map((item, index) => {
-                    
+
                     return (
                         <div key={index} onClick={() => moveDote(index)}
                         className={currentIndex === index ? styles.activeDote : styles.dot}>
@@ -50,7 +50,7 @@ useEffect(() => {
                     )
                 })}
             </div>
-        </div>
+        </>
     )
 }
 

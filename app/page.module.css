@@ -10,7 +10,7 @@
     border: 1px solid red;
 }
     
-.container_slider {
+.containerSlider {
     position: relative;
     left: 160px;
     width: 1120px;
@@ -25,12 +25,12 @@
   height: 702px;
 }
 
-.promo_link {
+.promoLink {
   display: block;
   cursor: pointer;
 }
 
-.promo_1 {
+.promo1 {
   position: relative;
   background-size: cover;
   top: 99px;
@@ -39,7 +39,7 @@
   height: 204px;
 }
 
-.promo_2 {
+.promo2 {
   position: relative;
   background-size: cover;
   top: 136px;
@@ -47,31 +47,4 @@
   width: 137px;
   height: 273px;
 }
-
-/* .container_dots {
-  position: relative;
-  top: -40px;
-  width: 1440;
-  height: 134px;
-}
-
-.container_dots {
-    display: flex;
-    justify-content: center;
-    column-gap: 10PX;
-    border: 1px solid;
-} */
-
-/* .dot {
-    position: relative;
-    top: 17PX;
-    width: 12px;
-    height: 12px;
-    background-image: url(../svg/Dotgrey.svg);
-    cursor: pointer;
-  }
-
-.dot .active {
-    background-image: url(../svg/Dotdarkgrey.svg);
-} */
 

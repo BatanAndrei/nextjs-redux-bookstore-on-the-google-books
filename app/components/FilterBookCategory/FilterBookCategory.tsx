@@ -3,7 +3,6 @@ import styles from '@/app/components/FilterBookCategory/filterBookCategory.modul
 
 export default function FilterBookCategory() {
 
-
     return (
         <div className={styles.containerCategory}>
             <div className={styles.categoryBooks}>
