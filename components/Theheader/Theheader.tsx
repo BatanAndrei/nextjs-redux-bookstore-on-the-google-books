@@ -8,7 +8,6 @@ import Link from 'next/link';
 import SvgUser from '@/public/svgComponents/svgUser';
 import SvgSearch from '@/public/svgComponents/svgSearch';
 import SvgCart from '@/public/svgComponents/svgCart';
-import { TchildrenProps } from '@/app/types/typesSlider';
 import { clsx } from 'clsx';
 import { usePathname } from 'next/navigation'
 
