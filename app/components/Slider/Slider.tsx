@@ -31,7 +31,7 @@ useEffect(() => {
     }
 
     return (
-        <>
+        <div className={styles.containerSlider}>
             {images.map((item, itemIndex) => {
 
                 return (
@@ -50,7 +50,7 @@ useEffect(() => {
                     )
                 })}
             </div>
-        </>
+        </div>
     )
 }
 
