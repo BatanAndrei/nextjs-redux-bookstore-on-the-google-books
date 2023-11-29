@@ -10,9 +10,7 @@ export default function HomePage() {
     return (
         <div className={styles.main}>
             <div className={styles.containerSlider}><Slider /></div>
-            <div className={styles.promo}>
-                <PromoLink />
-            </div>
+            <PromoLink />
             <FilterBookCategory />
             <BtnLoadMore />
         </div>
