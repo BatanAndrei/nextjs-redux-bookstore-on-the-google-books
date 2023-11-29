@@ -11,19 +11,19 @@ export default function Slider() {
 
     const [images, setImages] = useState<IdataSlider[]>(sliderData);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-    console.log(currentIndex)
+    
     const autoPlay = () => {
         if(currentIndex !== images.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-            //setCurrentIndex((prev) => prev + 1);
+            setCurrentIndex((prev) => prev + 1);
         }else if(currentIndex === images.length - 1) {
             setCurrentIndex(0);
         }
     }
 useEffect(() => {
-    setInterval(() => {
+    let intervalId = setInterval(() => {
         autoPlay()
-        }, 3000);
+        }, 5000);
+        return () => clearInterval(intervalId);
     }, [currentIndex]); 
 
     const moveDote = (index: number) => {
@@ -40,17 +40,15 @@ useEffect(() => {
                     </div>
                 )
     })}
-        <div className={styles.containerDots}>
-            {Array.from({length: 3}).map((item, index) => {
-                return (
-                    <div key={index} onClick={() => moveDote(index)}
-                    className={currentIndex ===index ? styles.activeDote : styles.dot}
-                    >
+            <div className={styles.containerDots}>
+                {Array.from({length: 3}).map((item, index) => {
+                    return (
+                        <div key={index} onClick={() => moveDote(index)}
+                        className={currentIndex ===index ? styles.activeDote : styles.dot}>
                     </div>
-                )
-            })}
-        </div>
-        <button className={styles.button} onClick={autoPlay}>Click</button>
+                    )
+                })}
+            </div>
         </div>
     )
 }
