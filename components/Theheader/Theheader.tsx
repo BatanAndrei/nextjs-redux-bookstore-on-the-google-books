@@ -1,4 +1,3 @@
-//'use client';
 'use client';
 
 
@@ -21,10 +20,10 @@ export default function Theheader() {
             <nav className={styles.navigation}>
                 <h1 className={montserrat.className+' '+styles.logo}>Bookshop</h1>
                 <ul className={montserrat.className+' '+styles.navLinks}>
-                    <li className={styles.navLinksItemBooks}><Link className={styles.navLinksDecorationItems} href="/">books</Link></li>
-                    <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems} href="/audiobooks">audiobooks</Link></li>
-                    <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems} href="/stationery">Stationery & gifts</Link></li>
-                    <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems} href="/blog">blog</Link></li>
+                    <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems+ ' ' +clsx(styles.navLinksItems, {[styles.navLinksItemBooks]: pathname === "/"})} href="/">books</Link></li>
+                    <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems+ ' ' +clsx(styles.navLinksItems, {[styles.navLinksItemBooks]: pathname === "/audiobooks"})} href="/audiobooks">audiobooks</Link></li>
+                    <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems+ ' ' +clsx(styles.navLinksItems, {[styles.navLinksItemBooks]: pathname === "/stationery"})} href="/stationery">Stationery & gifts</Link></li>
+                    <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems+ ' ' +clsx(styles.navLinksItems, {[styles.navLinksItemBooks]: pathname === "/blog"})} href="/blog">blog</Link></li>
                 </ul>
                 <div className={styles.navIinfo}>
                     <button className={styles.navIinfoUser}><Link href="/profile"><SvgUser /></Link></button>

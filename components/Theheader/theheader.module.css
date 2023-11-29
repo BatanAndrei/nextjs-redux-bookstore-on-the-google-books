@@ -30,12 +30,12 @@
     padding: 0px;
 }
 
-.navLinksItemBooks {
+.navLinksDecorationItems.navLinksItemBooks {
     font-weight: 900;
-    font-size: 10px;
+    /* font-size: 10px;
     line-height: 12px;
     text-transform: uppercase;
-    list-style: none;
+    list-style: none; */
 }    
 
 .navLinksItems {
