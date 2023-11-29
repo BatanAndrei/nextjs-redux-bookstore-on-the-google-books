@@ -1,4 +1,3 @@
-
 import styles from './page.module.css';
 import Slider from '@/app/components/Slider/Slider';
 import promo_2 from '@/public/images/promo_2.png';
@@ -6,6 +5,7 @@ import promo_1 from '@/public/images/promo_1.png';
 import Link from 'next/link';
 import Image from 'next/image';
 import FilterBookCategory from '@/app/components/FilterBookCategory/FilterBookCategory';
+import BtnLoadMore from '@/app/components/BtnLoadMore/BtnLoadMore';
 
 
 export default function HomePage() {
@@ -18,6 +18,7 @@ export default function HomePage() {
                 <Link className={styles.promoLink} href=""><div className={styles.promo2}><Image src={promo_2} alt='banner_1' width={137} height={237} /></div></Link>
             </div>
             <FilterBookCategory />
+            <BtnLoadMore />
         </div>
     )
 }
