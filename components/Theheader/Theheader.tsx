@@ -1,4 +1,6 @@
 //'use client';
+'use client';
+
 
 import styles from './theheader.module.css';
 import { montserrat } from '@/app/layout';
@@ -8,12 +10,12 @@ import SvgSearch from '@/public/svgComponents/svgSearch';
 import SvgCart from '@/public/svgComponents/svgCart';
 import { TchildrenProps } from '@/app/types/typesSlider';
 import { clsx } from 'clsx';
-//import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 
 export default function Theheader() {
 
-    //const pathname = usePathname();
+    const pathname = usePathname();
     
     return (
         <header className={styles.header}>
