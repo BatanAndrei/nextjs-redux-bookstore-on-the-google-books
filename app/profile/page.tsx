@@ -7,9 +7,14 @@ export default function Profile() {
         <div className={styles.containerProfile}>
             <div className={styles.infoProfile}>
                 <div className={styles.infoProfileTitle}>PROFILE</div>
-                <div className={styles.infoProfileBlock}>
+                <div className={styles.infoProfileGeneralData}>
                     <Image src={image_profile} alt='image_profile' width={235} height={235} className={styles.infoProfileImage}></Image>
-                    <div className={styles.infoProfileData}></div>
+                    <div className={styles.infoProfileData}>
+                        <h2 className={styles.infoProfileDataTitle}>YOUR NAME</h2>
+                        <h3 className={styles.infoProfileDataText}>Batan Andrei</h3>
+                        <h2 className={styles.infoProfileDataTitle}>YOUR EMAIL</h2>
+                        <h3 className={styles.infoProfileDataText}>yabatan777@gmail.com</h3>
+                    </div>
                 </div>
             </div>
             <div className={styles.aboutProfile}>
