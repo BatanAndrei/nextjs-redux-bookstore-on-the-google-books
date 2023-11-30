@@ -1,5 +1,10 @@
+import styles from './profile.module.css';
+
 export default function Profile() {
     return (
-        <h1 className="global">Profile</h1>
+        <div className={styles.containerProfile}>
+            <div className={styles.infoProfile}></div>
+            <div className={styles.aboutProfile}></div>
+        </div>
     )
 }

@@ -1,0 +1,23 @@
+.containerProfile {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 87px;
+    width: 1440px;
+    height: 534px;
+    position: relative;
+    top: 110px;
+    left: 40px;
+    border: 1px solid ;
+}
+
+.infoProfile {
+    width: 501px;
+    height: 276px;
+    border: 1px solid;
+}
+
+.aboutProfile {
+    width: 353px;
+    height: 345px;
+    border: 1px solid;
+}
