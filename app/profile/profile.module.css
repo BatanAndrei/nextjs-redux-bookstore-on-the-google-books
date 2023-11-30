@@ -19,5 +19,20 @@
 .aboutProfile {
     width: 353px;
     height: 345px;
-    border: 1px solid;
+    box-shadow: 0px 15px 20px 0px #D3D3D3;
+    background-color: #FFE0E2;
+}
+
+.aboutProfileTitle {
+    margin: 17px 142px 0px 142px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #000000;
+}
+
+.aboutProfileText {
+    margin: 29px 28px 0px 29px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #5C6A79;
 }
