@@ -5,10 +5,10 @@ export default function Cart() {
         <div className={styles.containerCart}>
             <h2 className={styles.titleCart}>SHOPPING CART</h2>
             <div className={styles.columnBlock}>
-                <h3 className={styles.nameColumn}>ITEM</h3>
-                <h3 className={styles.nameColumn}>QUANTITY</h3>
-                <h3 className={styles.nameColumn}>PRICE</h3>
-                <h3 className={styles.nameColumn}>DELIVERY</h3>
+                <h3 className={styles.nameColumn+' '+styles.item}>ITEM</h3>
+                <h3 className={styles.nameColumn+' '+styles.quantity}>QUANTITY</h3>
+                <h3 className={styles.nameColumn+' '+styles.price}>PRICE</h3>
+                <h3 className={styles.nameColumn+' '+styles.delivery}>DELIVERY</h3>
             </div>
         </div>
     )
