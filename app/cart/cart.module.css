@@ -1,0 +1,26 @@
+.containerCart {
+    position: relative;
+    top: 110px;
+    left:40px;
+    width: 1440px;
+    height: 842px;
+    border: 1px solid;
+}
+
+.titleCart {
+    margin: 87px 0px 19px 145px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.columnBlock {
+    display: flex;
+    width: 1440px;
+    height: 42px;
+    border: 1px solid;
+}
+
+.nameColumn {
+    font-weight: 700;
+    font-size: 10px;
+}
