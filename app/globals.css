@@ -1,3 +1,5 @@
 .global {
-    margin: 200px 0px 0px 700px;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
 }

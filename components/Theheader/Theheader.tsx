@@ -26,9 +26,9 @@ export default function Theheader() {
                     <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems+ ' ' +clsx(styles.navLinksItems, {[styles.navLinksItemBooks]: pathname === "/blog"})} href="/blog">blog</Link></li>
                 </ul>
                 <div className={styles.navIinfo}>
-                    <button className={styles.navIinfoUser}><Link href="/profile"><SvgUser /></Link></button>
-                    <button className={styles.navInfoSearch}><SvgSearch /></button>
-                    <button className={styles.navInfoCart}><Link href="/cart"><SvgCart /></Link></button>
+                    <Link className={clsx({[styles.disabled]: pathname === "/profile"})} href="/profile"><SvgUser /></Link>
+                    <Link className={styles.navInfoSearch} href=""><SvgSearch /></Link>
+                    <Link className={clsx({[styles.disabled]: pathname === "/cart"})} href="/cart"><SvgCart /></Link>
                     <div className={styles.navInfoCartFlag}>0</div>
                 </div>
             </nav>
