@@ -14,6 +14,7 @@ export default function Profile() {
                         <h3 className={styles.infoProfileDataText}>Batan Andrei</h3>
                         <h2 className={styles.infoProfileDataTitle}>YOUR EMAIL</h2>
                         <h3 className={styles.infoProfileDataText}>yabatan777@gmail.com</h3>
+                        <button className={styles.infoProfileButton}>EDIT PROFILE</button>
                     </div>
                 </div>
             </div>
