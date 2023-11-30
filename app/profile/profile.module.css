@@ -7,13 +7,11 @@
     position: relative;
     top: 110px;
     left: 40px;
-    border: 1px solid ;
 }
 
 .infoProfile {
     width: 501px;
     height: 276px;
-    border: 1px solid;
 }
 
 .aboutProfile {
@@ -35,4 +33,29 @@
     font-weight: 600;
     font-size: 12px;
     color: #5C6A79;
+}
+
+.infoProfileTitle {
+    width: 501px;
+    height: 41px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #1C2A39;
+}
+
+.infoProfileBlock {
+    display: flex;
+    width: 501px;
+    height: 235px;
+}
+
+.infoProfileImage {
+    width: 235px;
+    height: 235px;
+}
+
+.infoProfileData {
+    width: 266px;
+    height: 235px;
+    border: 1px solid;
 }
