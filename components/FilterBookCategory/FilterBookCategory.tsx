@@ -17,7 +17,7 @@ export default function FilterBookCategory() {
     return (
         <div className={styles.containerCategory}>
             <div className={styles.categoryBooks}>
-                <ul className={styles.montserrat+ ' ' +styles.categoryBooksList}>
+                <ul className={montserrat.className+ ' ' +styles.categoryBooksList}>
                     {categoryState.map((item, index) => <li key={index} onClick={() => moveCategory(index)} className={categoryIndex === index ? styles.categoryActive : styles.categoryBooksItem }>{item}</li>)}
                 </ul>
             </div>

@@ -9,6 +9,7 @@ import SvgSearch from '@/public/svgComponents/svgSearch';
 import SvgCart from '@/public/svgComponents/svgCart';
 import { clsx } from 'clsx';
 import { usePathname } from 'next/navigation'
+import LoginForm from '@/components/LoginForm/LoginForm';
 
 
 export default function Theheader() {
@@ -30,6 +31,7 @@ export default function Theheader() {
                     <Link className={styles.navInfoSearch} href=""><SvgSearch /></Link>
                     <Link className={clsx({[styles.disabled]: pathname === "/cart"})} href="/cart"><SvgCart /></Link>
                     <div className={styles.navInfoCartFlag}>0</div>
+                    {/* <LoginForm /> */}
                 </div>
             </nav>
         </header>
