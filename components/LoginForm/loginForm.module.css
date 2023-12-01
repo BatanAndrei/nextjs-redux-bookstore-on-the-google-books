@@ -27,6 +27,7 @@
 }
 
 .input {
+    padding-left: 5px;
     width: 176px;
     height: 35px;
     font-weight: 700;
