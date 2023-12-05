@@ -31,7 +31,7 @@ export default function Theheader() {
                     <Link className={styles.navInfoSearch} href=""><SvgSearch /></Link>
                     <Link className={clsx({[styles.disabled]: pathname === "/cart"})} href="/cart"><SvgCart /></Link>
                     <div className={styles.navInfoCartFlag}>0</div>
-                    {/* <LoginForm /> */}
+                    <LoginForm />
                 </div>
             </nav>
         </header>

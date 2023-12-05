@@ -4,11 +4,12 @@ import styles from './filterBookCategory.module.css';
 import { arreyArticles } from '@/app/datas/categoryData';
 import { useState } from 'react';
 import { montserrat } from '@/app/layout';
+import Books from '@/components/Books/Books';
 
 
-export default function FilterBookCategory() {
+export default function FilterBookCategory({data}: any) {
     const [categoryState, setCategoryState] = useState<string[]>(arreyArticles);
-    const [categoryIndex, setCategoryIndex] = useState<number>(0)
+    const [categoryIndex, setCategoryIndex] = useState<number>(0);
 
     const moveCategory = (index: number) => {
         setCategoryIndex(index)
@@ -21,7 +22,9 @@ export default function FilterBookCategory() {
                     {categoryState.map((item, index) => <li key={index} onClick={() => moveCategory(index)} className={categoryIndex === index ? styles.categoryActive : styles.categoryBooksItem }>{item}</li>)}
                 </ul>
             </div>
-            <div className={styles.showecaseBooks}></div>
+            <div className={styles.showecaseBooks}>
+                <Books />
+            </div>
         </div>
     )
 }

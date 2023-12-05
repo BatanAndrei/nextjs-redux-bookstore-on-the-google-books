@@ -24,6 +24,7 @@ export default function RootLayout({
                 <title>Web Studio</title>
                 <meta name="description" content="Project Bookshop Next JS TS" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="author" content="Batan Andrei" />
                 <title>Bookshop Next JS TS</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
