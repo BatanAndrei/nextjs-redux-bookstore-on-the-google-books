@@ -17,8 +17,11 @@ console.log(API_URL)
 
 export default function Books() {
 
+    const subject = 'Architecture';
+    const page = '0';
+
     async function Load() {
-        const res = await fetch('http://localhost:3000/api/allBooks').then(res => res.json());
+        const res = await fetch(`http://localhost:3000/api/allBooks?subject=${subject}&page=${page}`).then(res => res.json());
         console.log(res)
     }
 
