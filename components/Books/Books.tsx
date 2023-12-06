@@ -1,37 +1,24 @@
 import { useEffect } from "react";
+import { fetchBooks } from '@/redux/fetchGet';
+import { useAppSelector, useAppDispatch } from '@/redux/store';
+import { selectStatus, selectListBooks } from '@/redux/selectors';
 
-/* export async function getStaticProps() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/photos/');
 
-    const receivedData = await res.json();
 
-    return {
-        props: {
-            data: receivedData,
-        }
-    }
-} */
-
-export const API_URL = process.env.NEXT_PUBLIC_DB_HOST;
-console.log(API_URL)
 
 export default function Books() {
 
-    const subject = 'Architecture';
-    const page = '0';
-
-    async function Load() {
-        const res = await fetch(`http://localhost:3000/api/allBooks?subject=${subject}&page=${page}`).then(res => res.json());
-        console.log(res)
-    }
-
+    const listBooks = useAppSelector(selectListBooks);
+    const dispatch = useAppDispatch();
+    
+console.log(listBooks)
     useEffect(() => {
-        Load()
+        dispatch(fetchBooks(0))
     }, [])
     
     return (
         <>
-
+            {/* {listBooks && listBooks.map(() => {<div></div>})} */}
         </>
     )
 }

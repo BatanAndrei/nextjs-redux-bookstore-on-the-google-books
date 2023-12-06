@@ -8,7 +8,7 @@ export default async function requestAllBooks(req: NextApiRequest, res: NextApiR
    const { method } = req;
    
     
-   console.log(method)
+   
         
     //const validatedInfo = validate(email, password);
 

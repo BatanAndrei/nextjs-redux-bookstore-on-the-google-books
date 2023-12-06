@@ -15,6 +15,8 @@ import LoginForm from '@/components/LoginForm/LoginForm';
 export default function Theheader() {
 
     const pathname = usePathname();
+
+    let login: boolean = false;
     
     return (
         <header className={styles.header}>
@@ -27,11 +29,11 @@ export default function Theheader() {
                     <li className={styles.navLinksItems}><Link className={styles.navLinksDecorationItems+ ' ' +clsx(styles.navLinksItems, {[styles.navLinksItemBooks]: pathname === "/blog"})} href="/blog">blog</Link></li>
                 </ul>
                 <div className={styles.navIinfo}>
-                    <Link className={clsx({[styles.disabled]: pathname === "/profile"})} href="/profile"><SvgUser /></Link>
+                    <Link className={clsx({[styles.disabled]: pathname === "/profile"})} href={login ? "/profile" : "" } ><SvgUser /></Link>
                     <Link className={styles.navInfoSearch} href=""><SvgSearch /></Link>
                     <Link className={clsx({[styles.disabled]: pathname === "/cart"})} href="/cart"><SvgCart /></Link>
                     <div className={styles.navInfoCartFlag}>0</div>
-                    <LoginForm />
+                    {login ? "" : <LoginForm />}
                 </div>
             </nav>
         </header>
