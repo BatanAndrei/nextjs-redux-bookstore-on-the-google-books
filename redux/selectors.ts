@@ -27,7 +27,7 @@ export const booksSlice = createSlice({
         .addCase(fetchBooks.fulfilled, 
             (state, { payload }) => { 
             state.listBooks = {...state.listBooks, ...payload}
-            /* state.listBooks.push(...payload); */
+            //state.listBooks.push(...payload);
             state.status = "idle";
     });
 
