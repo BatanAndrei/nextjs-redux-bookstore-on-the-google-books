@@ -9,7 +9,7 @@ export const fetchBooks = createAsyncThunk<any, any, { rejectValue: any }>(
         const subject = 'Architecture';
         //const page = '0';
     
-        const response = await fetch(`http://localhost:3000/api/allBooks?subject=${subject}&page=${page}`);//http://localhost:3000/api/allBooks?subject=${subject}&page=${page}
+        const response = await fetch(`http://localhost:3000/api/allBooks?subject=${subject}&page=${page}`);
 
         const data: any = await response.json();
 
@@ -24,11 +24,3 @@ export const fetchBooks = createAsyncThunk<any, any, { rejectValue: any }>(
     }
 );
 
-
-/* const subject = 'Architecture';
-const page = '0';
-
-async function Load() {
-    const res = await fetch(`http://localhost:3000/api/allBooks?subject=${subject}&page=${page}`).then(res => res.json());
-    console.log(res)
-} */
