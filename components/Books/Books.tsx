@@ -13,7 +13,7 @@ export default function Books() {
     
 console.log(listBooks)
     useEffect(() => {
-        dispatch(fetchBooks(0))
+        dispatch(fetchBooks(4))
     }, [])
     
     return (

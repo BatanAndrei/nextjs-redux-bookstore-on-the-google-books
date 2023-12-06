@@ -7,16 +7,17 @@ export default async function requestAllBooks(req: NextApiRequest, res: NextApiR
 
     const gbooksReqParams = new URLSearchParams();
     gbooksReqParams.set('q', '""');
-    gbooksReqParams.set('subject', `${subject}`);
+    gbooksReqParams.set('subject', `${subject}`);//${subject}
     gbooksReqParams.set('key', `AIzaSyBcCLzRToIHmdzCQcf7uNtoVDpGU-sVf24`);
     gbooksReqParams.set('printType', `books`);
-    gbooksReqParams.set('startIndex', `${page}`); 
+    gbooksReqParams.set('startIndex', `${page}`); //${page}
     gbooksReqParams.set('maxResults', `6`);
     gbooksReqParams.set('langRestrict', `en`);
     
     const result = await fetch(`https://www.googleapis.com/books/v1/volumes?${gbooksReqParams.toString()}`)
     
-    const booksData = await result.json();
+    const booksData = await result.json();//https://www.googleapis.com/books/v1/volumes?${gbooksReqParams.toString()}
+
 
     res.status(200).send({ data: booksData, })
     
