@@ -14,12 +14,12 @@ export default async function requestAllBooks(req: NextApiRequest, res: NextApiR
     gbooksReqParams.set('maxResults', `6`);
     gbooksReqParams.set('langRestrict', `en`);
     
-    const result = await fetch(`https://www.googleapis.com/books/v1/volumes?q="subject:Business"&key=AIzaSyBcCLzRToIHmdzCQcf7uNtoVDpGU-sVf24&printType=books&startIndex=0&maxResults=6&langRestrict=en`)
+    const result = await fetch(`https://www.googleapis.com/books/v1/volumes?${gbooksReqParams.toString()}`)
     
     const booksData = await result.json();//https://www.googleapis.com/books/v1/volumes?${gbooksReqParams.toString()}
 
 
-    res.status(200).send({ data: booksData, })
+    res.status(200).send({ data: booksData })
     
 /* if (!req.query.subject || !req.query.page) {
     res.status(400).send({
