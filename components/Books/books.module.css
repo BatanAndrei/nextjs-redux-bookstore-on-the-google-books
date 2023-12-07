@@ -1,5 +1,6 @@
 
 .containerBooks {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 964px;
