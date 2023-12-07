@@ -18,7 +18,7 @@ export default async function requestAllBooks(req: NextApiRequest, res: NextApiR
     const booksData = await result.json();//https://www.googleapis.com/books/v1/volumes?${gbooksReqParams.toString()}
 
 
-    res.status(200).send({ data: booksData })
+    res.status(200).send({ data: booksData, })
     
 /* if (!req.query.subject || !req.query.page) {
     res.status(400).send({
