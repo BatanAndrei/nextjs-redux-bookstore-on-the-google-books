@@ -23,7 +23,7 @@ export default function Books() {
     return (
         <div className={styles.containerBooks}>
             {listBooks?.map((item, index) => <div key={index} className={styles.bookPosition}>
-                <Image src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.imageLinks?.thumbnail}`} width={212} height={310} />
+                <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.bookPositionImageNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.imageLinks?.thumbnail}`} width={212} height={310} />
             </div>)}
         </div>
     )
