@@ -13,8 +13,6 @@ export default function Books() {
 
     let listBooks = dataBooks.items;
     
-    
-    
     console.log(dataBooks);
 
     useEffect(() => {
