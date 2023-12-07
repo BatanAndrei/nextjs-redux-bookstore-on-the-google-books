@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchBooks } from '@/redux/fetchGet';
 import { RootState  } from '@/redux/store';
-import { TbooksInitState, IlistBooks, IparamsFetch } from '@/types/types';
+import { TbooksInitState, IdataBooks, IparamsFetch } from '@/types/types';
 
 const initialState: TbooksInitState = {
     dataBooks: {

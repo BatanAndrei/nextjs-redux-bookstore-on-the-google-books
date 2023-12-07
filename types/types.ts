@@ -13,7 +13,7 @@ export type TfetchTicketsError = {  // тип описывает структу�
     message: string;
     };
 
-  export interface IlistBooks {
+  export interface IdataBooks {
       volumeInfo: {
           imageLinks: {
               thumbnail: string,
@@ -25,7 +25,7 @@ export type TfetchTicketsError = {  // тип описывает структу�
 
   export type TbooksInitState = { // типы для обработки запроса статусов к серверу
       dataBooks: {
-          items: IlistBooks[],
+          items: IdataBooks[],
       }
       error: string | null;
       status: "loading" | "idle";
