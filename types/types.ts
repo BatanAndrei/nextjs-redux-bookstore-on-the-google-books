@@ -17,8 +17,10 @@ export type TfetchTicketsError = {  // тип описывает структу�
       volumeInfo: {
           imageLinks: {
               thumbnail: string,
-          }
-      }
+          },
+          authors: string[],
+          title: string,
+      },
   };
 
   export type TbooksInitState = { // типы для обработки запроса статусов к серверу

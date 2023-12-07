@@ -11,7 +11,7 @@ import { store } from '@/redux/store';
 
 
 export const montserrat = Montserrat({ subsets: ['latin'] })
-const openSans = Open_Sans({ subsets: ['latin'] })
+export const openSans = Open_Sans({ subsets: ['latin'] })
 
 
 export default function RootLayout({

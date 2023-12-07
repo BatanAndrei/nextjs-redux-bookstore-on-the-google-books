@@ -26,3 +26,33 @@
     box-shadow: 5px 15px 5px rgba(0,0,0,.3);
     background-image: url(../../public/images/images\ placeholder.jpeg) ;
 }
+
+.bookPositionInfo {
+    position:relative;
+    margin-top: 40px;
+    width: 212px;
+    height: 310px;
+    border: 1px solid;
+}
+
+.bookPositionInfoAuthor {
+    font-weight: 400;
+    padding: 40px 0px 0px 25px;
+    font-size: 10px;
+    line-height: 14px;
+    text-transform: capitalize;
+    color: #5C6A79;
+}
+
+.bookPositionInfoTitle {
+    width: 176px;
+    max-height: 62px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 4px 0px 0px 25px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1C2A39;
+}
+
