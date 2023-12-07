@@ -1,25 +1,30 @@
 import { useEffect } from "react";
 import { fetchBooks } from '@/redux/fetchGet';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { selectListBooks } from '@/redux/selectors';
-
-
+import { selectDataBooks, selectLoadParams } from '@/redux/selectors';
+import styles from './books.module.css';
 
 
 export default function Books() {
 
-    const listBooks = useAppSelector(selectListBooks);
+    const loadParams = useAppSelector(selectLoadParams);
+    const dataBooks = useAppSelector(selectDataBooks);
     const dispatch = useAppDispatch();
+
+    let listBooks = dataBooks.items;
     
-console.log(listBooks)
+    
+    
+    console.log(dataBooks);
+
     useEffect(() => {
-        dispatch(fetchBooks(0))
-    }, [])
+        dispatch(fetchBooks(loadParams))
+    }, [loadParams])
     
     return (
-        <>
-            {/* {listBooks && listBooks.map(() => {<div></div>})} */}
-        </>
+        <div className={styles.block}>
+           {listBooks?.map((item, index) => <div key={index} className={styles.book}>{item.id}</div>)}
+        </div>
     )
 }
 

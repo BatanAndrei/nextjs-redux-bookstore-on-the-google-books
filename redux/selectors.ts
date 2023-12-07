@@ -1,11 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchBooks } from '@/redux/fetchGet';
 import { RootState  } from '@/redux/store';
+import { TbooksInitState } from '@/types/types';
 
-const initialState: any = {
-    listBooks: [],
+const initialState: TbooksInitState = {
+    dataBooks: {
+        items: [],
+    },
     error: null,
     status: "idle",
+    paramsFetch: {
+        page: 0,
+        subject: 'Architecture',
+    }
 };
 
 export const booksSlice = createSlice({
@@ -26,8 +33,7 @@ export const booksSlice = createSlice({
         builder
         .addCase(fetchBooks.fulfilled, 
             (state, { payload }) => { 
-            state.listBooks = {...state.listBooks, ...payload}
-            //state.listBooks.push(...payload);
+            state.dataBooks = {...state.dataBooks, ...payload}
             state.status = "idle";
     });
 
@@ -42,4 +48,6 @@ export const booksSlice = createSlice({
 })
 
 export const selectStatus = (state: RootState) => state.booksExtraReducer.status; //статус в booksExtraReducer
-export const selectListBooks = (state: RootState) => state.booksExtraReducer.listBooks;
+export const selectDataBooks = (state: RootState) => state.booksExtraReducer.dataBooks;
+
+export const selectLoadParams = (state: RootState) => state.loadReducer.paramsFetch;

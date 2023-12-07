@@ -1,20 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TfetchTicketsError } from '@/app/types/types';
+import { TfetchTicketsError, IparamsFetch, IlistBooks } from '@/types/types';
 
 
 
-export const fetchBooks = createAsyncThunk<any, number, { rejectValue: TfetchTicketsError }>(
+export const fetchBooks = createAsyncThunk<IlistBooks, IparamsFetch, { rejectValue: TfetchTicketsError }>(
     "books/fetchBooks", 
-    async (page: number, thunkApi) => { // объект thunkApi содержит функцию rejectWithValue
+    async ({page, subject}: IparamsFetch, thunkApi) => { // объект thunkApi содержит функцию rejectWithValue
 
-        const subject = 'Architecture';
-        //const page = '0';
     
-        const response = await fetch(`http://localhost:3000/api/allbooks?subject=${subject}&page=${page}`);
+        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q="subject:${subject}"&key=AIzaSyBcCLzRToIHmdzCQcf7uNtoVDpGU-sVf24&printType=books&startIndex=${page}&maxResults=6&langRestrict=en`);
 
-        const data: any = await response.json();//http://localhost:3000/api/allbooks?subject=${subject}&page=${page}
+        const data: IlistBooks = await response.json();
 
-        if (response.status !== 200) {//https://www.googleapis.com/books/v1/volumes?q="subject:Business"&key=AIzaSyBcCLzRToIHmdzCQcf7uNtoVDpGU-sVf24&printType=books&startIndex=0&maxResults=6&langRestrict=en
+        if (response.status !== 200) {
         
             return thunkApi.rejectWithValue({  //rejectWithValue проверяет и возвращает ошибку при не удачном запросе
             message: "Failed to fetch books." 

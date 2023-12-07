@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import styles from './slider.module.css';
-import { sliderData } from '@/app/datas/sliderData';
+import { sliderData } from '@/datas/sliderData';
 import { useState, useEffect } from 'react';
-import { IdataSlider } from '@/app/types/types';
+import { IdataSlider } from '@/types/types';
 
 
 export default function Slider() {
