@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchBooks } from '@/redux/fetchGet';
 import { RootState  } from '@/redux/store';
-import { TbooksInitState } from '@/types/types';
+import { TbooksInitState, IlistBooks, IparamsFetch } from '@/types/types';
 
 const initialState: TbooksInitState = {
     dataBooks: {
@@ -47,7 +47,7 @@ export const booksSlice = createSlice({
     }
 })
 
-export const selectStatus = (state: RootState) => state.booksExtraReducer.status; //статус в booksExtraReducer
+export const selectStatus = (state: RootState): "loading" | "idle" => state.booksExtraReducer.status; //статус в booksExtraReducer
 export const selectDataBooks = (state: RootState) => state.booksExtraReducer.dataBooks;
 
-export const selectLoadParams = (state: RootState) => state.loadReducer.paramsFetch;
+export const selectLoadParams = (state: RootState): IparamsFetch => state.loadReducer.paramsFetch;
