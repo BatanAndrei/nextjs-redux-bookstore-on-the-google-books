@@ -56,3 +56,22 @@
     color: #1C2A39;
 }
 
+.ratingBlock {
+    display: flex;
+    align-items: center;
+    margin: 4px 0px 0px 25px;
+    width: 176px;
+    height: 15px;
+    border: 1px solid;
+}
+
+.ratingBlockNone {
+    display: none;
+}
+
+.ratingBlockStarsAll {
+    display: flex;
+    width: 65px;
+    height: 15px;
+    border: 1px solid;
+}
