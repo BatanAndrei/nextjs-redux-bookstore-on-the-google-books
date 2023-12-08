@@ -29,12 +29,40 @@ export default function Books() {
                     <h2 className={openSans.className+' '+styles.bookPositionInfoAuthor}>{item.volumeInfo?.authors.join(', ')}</h2>
                     <h2 className={montserrat.className+' '+styles.bookPositionInfoTitle}>{item.volumeInfo?.title.length < 40 ? item.volumeInfo?.title.slice(0, 40) + '. . .' : item.volumeInfo?.title}</h2>
                     <div className={`${item.volumeInfo?.averageRating ? styles.ratingBlock : styles.ratingBlockNone}`}>
-                        <div className={`${item.volumeInfo?.averageRating === 1 ? styles.ratingBlockStarsAll : ""}`}>
+                        <div className={`${item.volumeInfo?.averageRating === 1 ? styles.ratingBlockStarsAll : styles.ratingBlockNone}`}>
                             <div className={styles.ratingBlockStarsYellow}></div>
                             <div className={styles.ratingBlockStarsGrey}></div>
                             <div className={styles.ratingBlockStarsGrey}></div>
                             <div className={styles.ratingBlockStarsGrey}></div>
                             <div className={styles.ratingBlockStarsGrey}></div>
+                        </div>
+                        <div className={`${item.volumeInfo?.averageRating === 2 ? styles.ratingBlockStarsAll : styles.ratingBlockNone}`}>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsGrey}></div>
+                            <div className={styles.ratingBlockStarsGrey}></div>
+                            <div className={styles.ratingBlockStarsGrey}></div>
+                        </div>
+                        <div className={`${item.volumeInfo?.averageRating === 3 ? styles.ratingBlockStarsAll : styles.ratingBlockNone}`}>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsGrey}></div>
+                            <div className={styles.ratingBlockStarsGrey}></div>
+                        </div>
+                        <div className={`${item.volumeInfo?.averageRating === 4 ? styles.ratingBlockStarsAll : styles.ratingBlockNone}`}>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsGrey}></div>
+                        </div>
+                        <div className={`${item.volumeInfo?.averageRating === 5 ? styles.ratingBlockStarsAll : styles.ratingBlockNone}`}>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
+                            <div className={styles.ratingBlockStarsYellow}></div>
                         </div>
                     </div>
                 </div>

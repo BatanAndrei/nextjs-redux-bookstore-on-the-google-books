@@ -73,5 +73,16 @@
     display: flex;
     width: 65px;
     height: 15px;
-    border: 1px solid;
+}
+
+.ratingBlockStarsYellow {
+    width: 12PX;
+    height: 12PX;
+    background-image: url(../../public/Star\ yellow.svg);
+}
+
+.ratingBlockStarsGrey {
+    width: 12PX;
+    height: 12PX;
+    background-image: url(../../public/Star\ grey.svg);
 }
