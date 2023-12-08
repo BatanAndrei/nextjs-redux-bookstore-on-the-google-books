@@ -62,7 +62,6 @@
     margin: 4px 0px 0px 25px;
     width: 176px;
     height: 15px;
-    border: 1px solid;
 }
 
 .ratingBlockNone {
@@ -85,4 +84,18 @@
     width: 12PX;
     height: 12PX;
     background-image: url(../../public/Star\ grey.svg);
+}
+
+.ratingBlockCount {
+    margin-left: 6px;
+    width: 100px;
+    height: 15px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    color: #5C6A79;
+}
+
+.ratingBlockCountNone {
+    display: none;
 }

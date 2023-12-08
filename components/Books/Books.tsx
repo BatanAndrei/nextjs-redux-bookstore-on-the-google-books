@@ -64,6 +64,7 @@ export default function Books() {
                             <div className={styles.ratingBlockStarsYellow}></div>
                             <div className={styles.ratingBlockStarsYellow}></div>
                         </div>
+                        <h2 className={`${item.volumeInfo?.ratingsCount ? styles.ratingBlockCount : styles.ratingBlockCountNone}`}>{item.volumeInfo?.ratingsCount} review</h2>
                     </div>
                 </div>
             </div>)}
