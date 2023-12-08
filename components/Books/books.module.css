@@ -109,3 +109,29 @@
     -webkit-box-orient: vertical;
     color: #5C6A79;
 }
+
+.bookPositionInfoSale {
+    position: absolute;
+    bottom: 90px;
+    width: 170px;
+    height: 18px;
+    margin: 16px 0px 0px 25px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #1C2A39;
+}
+
+.btnBuyNow {
+    background-color: whitesmoke;
+    width: 176px;
+    height: 45px;
+    border: 1px solid #4C3DB2;
+    color:  #4C3DB2;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    margin: 16px 0px 0px 25px;
+}

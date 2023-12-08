@@ -14,6 +14,7 @@ export default function Books() {
     const dispatch = useAppDispatch();
 
     let listBooks = dataBooks.items;
+    const textBtnBy = "BUY NOW"
     
     console.log(listBooks);
 
@@ -67,6 +68,8 @@ export default function Books() {
                         <h2 className={`${item.volumeInfo?.ratingsCount ? styles.ratingBlockCount : styles.displayNone}`}>{item.volumeInfo?.ratingsCount} review</h2>
                     </div>
                     <h2 className={`${item.volumeInfo?.description ? styles.bookPositionInfoDescription : styles.displayNone}`}>${item.volumeInfo?.description}</h2>
+                    <h2 className={`${item.saleInfo?.retailPrice?.amount ? styles.bookPositionInfoSale : styles.displayNone}`}>&#36;{item.saleInfo?.retailPrice?.amount}</h2>
+                    <button className={styles.btnBuyNow} type="button" data-btnbuy="${item.id}">{textBtnBy}</button>
                 </div>
             </div>)}
         </div>

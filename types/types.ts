@@ -24,6 +24,11 @@ export type TfetchTicketsError = {  // тип описывает структу�
           ratingsCount: number,
           description: string,
       },
+      saleInfo: {
+          retailPrice: {
+              amount: number,
+          }
+      }
   };
 
   export type TbooksInitState = { // типы для обработки запроса статусов к серверу
