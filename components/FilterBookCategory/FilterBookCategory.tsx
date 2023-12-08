@@ -1,14 +1,14 @@
 "use client";
 
 import styles from './filterBookCategory.module.css';
-import { arreyArticles } from '@/datas/categoryData';
+import { listCategories } from '@/datas/categoryData';
 import { useState } from 'react';
 import { montserrat } from '@/app/layout';
 import Books from '@/components/Books/Books';
 
 
 export default function FilterBookCategory() {
-    const [categoryState, setCategoryState] = useState<string[]>(arreyArticles);
+    const [categoryState, setCategoryState] = useState<string[]>(listCategories);
     const [categoryIndex, setCategoryIndex] = useState<number>(0);
 
     const moveCategory = (index: number) => {

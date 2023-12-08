@@ -1,5 +1,5 @@
 
-export const arreyArticles: string[] = ['Architecture',
+export const listCategories: string[] = ['Architecture',
     'Art & Fashion',
     'Biography',
     'Business',
