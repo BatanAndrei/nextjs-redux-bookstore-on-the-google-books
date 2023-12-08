@@ -22,6 +22,7 @@ export type TfetchTicketsError = {  // тип описывает структу�
           title: string,
           averageRating: number,
           ratingsCount: number,
+          description: string,
       },
   };
 
