@@ -11,7 +11,6 @@
     display: flex;
     width: 450px;
     height: 368px;
-    border: 1px solid red;
 }
 
 .bookPositionImage {
@@ -32,7 +31,6 @@
     margin-top: 40px;
     width: 212px;
     height: 310px;
-    border: 1px solid;
 }
 
 .bookPositionInfoAuthor {
