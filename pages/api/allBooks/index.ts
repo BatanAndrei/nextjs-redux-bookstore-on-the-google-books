@@ -15,15 +15,15 @@ export default async function requestAllBooks(req: NextApiRequest, res: NextApiR
     
     const result = await fetch(`https://www.googleapis.com/books/v1/volumes?${gbooksReqParams.toString()}`)
     
-    const booksData = await result.json();//https://www.googleapis.com/books/v1/volumes?${gbooksReqParams.toString()}
+    const booksData = await result.json();
 
 
     res.status(200).send({ data: booksData, })
     
-/* if (!req.query.subject || !req.query.page) {
+if (!req.query.subject || !req.query.page) {
     res.status(400).send({
         error: true,
         message: 'No subject or page in query params'
     })
-} */ 
+} 
 }   
