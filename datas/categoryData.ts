@@ -15,3 +15,4 @@ export const listCategories: string[] = ['Architecture',
     'Science',
     'Technology',
     'Travel & Maps'];
+

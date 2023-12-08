@@ -13,35 +13,35 @@ export type TfetchTicketsError = {  // тип описывает структу�
     message: string;
     };
 
-  export interface IdataBooks {
-      volumeInfo: {
-          imageLinks: {
-              thumbnail: string,
-          },
-          authors: string[],
-          title: string,
-          averageRating: number,
-          ratingsCount: number,
-          description: string,
-      },
-      saleInfo: {
-          retailPrice: {
-              amount: number,
-          }
-      }
-  };
+export interface IdataBooks {
+    volumeInfo: {
+        imageLinks: {
+            thumbnail: string,
+        },
+        authors: string[],
+        title: string,
+        averageRating: number,
+        ratingsCount: number,
+        description: string,
+    },
+    saleInfo: {
+        retailPrice: {
+            amount: number,
+        }
+    }
+};
 
-  export type TbooksInitState = { // типы для обработки запроса статусов к серверу
-      dataBooks: {
-          items: IdataBooks[],
-      }
-      error: string | null;
-      status: "loading" | "idle";
-      paramsFetch: IparamsFetch;
-  };
+export type TbooksInitState = { // типы для обработки запроса статусов к серверу
+    dataBooks: {
+        items: IdataBooks[],
+    }
+    error: string | null;
+    status: "loading" | "idle";
+    paramsFetch: IparamsFetch;
+};
 
-  export interface IparamsFetch {
-      page: number,
-      subject: string,
-  }
+export interface IparamsFetch {
+    page: number,
+    subject: string,
+}
 
