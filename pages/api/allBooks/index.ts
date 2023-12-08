@@ -6,10 +6,10 @@ export default async function requestAllBooks(req: NextApiRequest, res: NextApiR
     const { subject, page } = req.query;
 
     const gbooksReqParams = new URLSearchParams();
-    gbooksReqParams.set('q', `Subject:${subject}`);//${subject}
+    gbooksReqParams.set('q', `Subject:${subject}`);
     gbooksReqParams.set('key', `AIzaSyBcCLzRToIHmdzCQcf7uNtoVDpGU-sVf24`);
     gbooksReqParams.set('printType', `books`);
-    gbooksReqParams.set('startIndex', `${page}`); //${page}
+    gbooksReqParams.set('startIndex', `${page}`);
     gbooksReqParams.set('maxResults', `6`);
     gbooksReqParams.set('langRestrict', `en`);
     
