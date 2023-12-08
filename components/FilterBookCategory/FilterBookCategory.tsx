@@ -7,7 +7,7 @@ import { montserrat } from '@/app/layout';
 import Books from '@/components/Books/Books';
 
 
-export default function FilterBookCategory({data}: any) {
+export default function FilterBookCategory() {
     const [categoryState, setCategoryState] = useState<string[]>(arreyArticles);
     const [categoryIndex, setCategoryIndex] = useState<number>(0);
 
