@@ -48,5 +48,5 @@ export const booksSlice = createSlice({
 })
 
 export const selectStatus = (state: RootState): "loading" | "idle" => state.booksExtraReducer.status; //статус в booksExtraReducer
-export const selectDataBooks = (state: RootState) => state.booksExtraReducer.dataBooks;
+export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataBooks.items;
 export const selectLoadParams = (state: RootState): IparamsFetch => state.extraReducers.paramsFetch;

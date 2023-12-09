@@ -10,13 +10,12 @@ import styles from './books.module.css';
 export default function Books() {
 
     const loadParams = useAppSelector(selectLoadParams);
-    const dataBooks = useAppSelector(selectDataBooks);
+    const dataListBooks = useAppSelector(selectDataBooks);
     const dispatch = useAppDispatch();
 
-    let listBooks = dataBooks.items;
     const textBtnBy = "BUY NOW"
     
-    console.log(listBooks);
+    console.log(dataListBooks);
 
     useEffect(() => {
         dispatch(fetchBooks(loadParams))
@@ -24,7 +23,7 @@ export default function Books() {
     
     return (
         <div className={styles.containerBooks}>
-            {listBooks?.map((item, index) => <div key={index} className={styles.bookPosition}>
+            {dataListBooks?.map((item, index) => <div key={index} className={styles.bookPosition}>
                 <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.displayNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.imageLinks?.thumbnail}`} width={212} height={310} />
                 <div className={styles.bookPositionInfo}>
                     <h2 className={openSans.className+' '+styles.bookPositionInfoAuthor}>{item.volumeInfo?.authors.join(', ')}</h2>
