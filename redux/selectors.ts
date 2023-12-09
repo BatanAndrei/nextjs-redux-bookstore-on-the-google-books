@@ -24,7 +24,6 @@ export const booksSlice = createSlice({
     loadDataReducer: (state) => {
         state.paramsFetch.maxResults += 6;
     }
-
     },
 
     extraReducers: (builder) => {
