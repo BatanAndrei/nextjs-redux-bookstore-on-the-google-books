@@ -18,7 +18,7 @@ const initialState: TbooksInitState = {
 export const booksSlice = createSlice({
     name: "books",
     initialState,
-    reducers: {
+    reducers: {   
 
     },
 
@@ -49,5 +49,4 @@ export const booksSlice = createSlice({
 
 export const selectStatus = (state: RootState): "loading" | "idle" => state.booksExtraReducer.status; //статус в booksExtraReducer
 export const selectDataBooks = (state: RootState) => state.booksExtraReducer.dataBooks;
-
-export const selectLoadParams = (state: RootState): IparamsFetch => state.loadReducer.paramsFetch;
+export const selectLoadParams = (state: RootState): IparamsFetch => state.extraReducers.paramsFetch;

@@ -6,7 +6,7 @@ import { booksSlice } from "@/redux/selectors";
 export const store = configureStore({
     reducer: {
         booksExtraReducer: booksSlice.reducer,
-        loadReducer: booksSlice.reducer,
+        extraReducers: booksSlice.reducer,
     }
 })
 
