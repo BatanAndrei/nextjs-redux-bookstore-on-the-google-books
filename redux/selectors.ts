@@ -12,6 +12,7 @@ const initialState: TbooksInitState = {
     paramsFetch: {
         page: 0,
         subject: 'Architecture',
+        maxResults: 6,
     }
 };
 
@@ -19,6 +20,10 @@ export const booksSlice = createSlice({
     name: "books",
     initialState,
     reducers: {   
+    
+    loadDataReducer: (state) => {
+        state.paramsFetch.maxResults += 6;
+    }
 
     },
 
@@ -49,4 +54,7 @@ export const booksSlice = createSlice({
 
 export const selectStatus = (state: RootState): "loading" | "idle" => state.booksExtraReducer.status; //статус в booksExtraReducer
 export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataBooks.items;
-export const selectLoadParams = (state: RootState): IparamsFetch => state.extraReducers.paramsFetch;
+
+export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;
+
+export const { loadDataReducer } = booksSlice.actions;

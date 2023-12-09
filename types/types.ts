@@ -43,6 +43,7 @@ export type TbooksInitState = { // типы для обработки запро
 export interface IparamsFetch {
     page: number,
     subject: string,
+    maxResults: number,
 }
 
 export enum listCategories {

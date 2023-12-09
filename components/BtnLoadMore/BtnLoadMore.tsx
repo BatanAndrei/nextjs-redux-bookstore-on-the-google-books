@@ -1,11 +1,17 @@
+'use client'
+
 import styles from './btnLoadMore.module.css';
+import { useAppSelector, useAppDispatch } from '@/redux/store';
+import { loadDataReducer } from '@/redux/selectors';
 
 
 export default function BtnLoadMore() {
 
+    const dispatch = useAppDispatch();
+
     return (
         <>
-            <button className={styles.btnLoadMore} type="button">Load more</button>
+            <button onClick={() => dispatch(loadDataReducer())} className={styles.btnLoadMore} type="button">Load more</button>
         </>
     )
 }
