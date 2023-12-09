@@ -45,4 +45,23 @@ export interface IparamsFetch {
     subject: string,
 }
 
+export enum listCategories {
+    architecture = 'Architecture',
+    artFashion = 'Art & Fashion',
+    biography = 'Biography',
+    business = 'Business',
+    braftsHobbies = 'Crafts & Hobbies',
+    drama = 'Drama',
+    fiction = 'Fiction',
+    foodDrink = 'Food & Drink',
+    healthWellbeing = 'Health & Wellbeing',
+    historyPolitics = 'History & Politics',
+    humor = 'Humor',
+    poetry = 'Poetry',
+    psychology = 'Psychology',
+    science = 'Science',
+    technology = 'Technology',
+    travelMaps = 'Travel & Maps',
+}
+
 

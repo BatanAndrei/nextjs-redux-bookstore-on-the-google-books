@@ -1,5 +1,5 @@
 
-export const listCategories = ['Architecture',
+export const listCategories: string[] = ['Architecture',
     'Art & Fashion',
     'Biography',
     'Business',
@@ -14,5 +14,8 @@ export const listCategories = ['Architecture',
     'Psychology',
     'Science',
     'Technology',
-    'Travel & Maps'];
+    'Travel & Maps']; 
+
+    
+
 
