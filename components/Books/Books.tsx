@@ -16,7 +16,8 @@ export default function Books() {
 
     const textBtnBy = "BUY NOW";
     
-    console.log(dataListBooks);
+    //console.log(dataListBooks);
+
     useEffect(() => {
         dispatch(fetchBooks(loadParams));
     }, [loadParams])
