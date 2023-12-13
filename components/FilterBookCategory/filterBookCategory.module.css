@@ -1,7 +1,6 @@
 .containerDisplayBooks {
     position: relative;
     top: -585px;
-    /* left: 60px; */
     display: flex;
     width: 1440;
     max-height: 10146px;
@@ -9,12 +8,13 @@
 }
 
 .categoryBooks {
-    width: 416px;
+    width: 436px;
     height: 710px;
     background-color: #EFEEF6;
 }
 
 .categoryBooksList {
+    padding-left: 60px;
     position: relative;
     top: 30px;
     left: 88px;
