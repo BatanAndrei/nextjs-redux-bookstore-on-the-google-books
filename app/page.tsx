@@ -1,6 +1,6 @@
 import styles from './page.module.css';
 import Slider from '@/components/Slider/Slider';
-import FilterBookCategory from '@/components/FilterBookCategory/FilterBookCategory';
+import FilterBooksCategory from '@/components/FilterBooksCategory/FilterBooksCategory';
 import BtnLoadMore from '@/components/BtnLoadMore/BtnLoadMore';
 import PromoLink from '@/components/PromoLinks/PromoLinks';
 
@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className={styles.main}>
             <Slider />
             <PromoLink />
-            <FilterBookCategory />
+            <FilterBooksCategory />
         </div>
     )
 }

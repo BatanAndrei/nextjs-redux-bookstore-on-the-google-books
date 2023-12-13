@@ -1,6 +1,6 @@
 "use client";
 
-import styles from './filterBookCategory.module.css';
+import styles from './filterBooksCategory.module.css';
 import { listCategories } from '@/datas/categoryData';
 import { useState } from 'react';
 import { montserrat } from '@/app/layout';
@@ -16,7 +16,7 @@ export default function FilterBookCategory() {
     }
 
     return (
-        <div className={styles.containerDisplayBooks}>
+        <div className={styles.containerShowcase}>
             <div className={styles.categoryBooks}>
                 <ul className={montserrat.className+ ' ' +styles.categoryBooksList}>
                     {categoryState.map((item, index) => <li key={index} onClick={() => moveCategory(index)} className={categoryIndex === index ? styles.categoryActive : styles.categoryBooksItem }>{item}</li>)}
