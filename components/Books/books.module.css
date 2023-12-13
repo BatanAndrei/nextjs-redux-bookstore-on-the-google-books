@@ -2,6 +2,7 @@
 .containerBooks {
     position: relative;
     display: flex;
+    right: 50px;
     flex-wrap: wrap;
     width: 964px;
     max-height: 10146px;
@@ -23,7 +24,7 @@
     font-size: 0;
     background-size: cover;
     box-shadow: 5px 15px 5px rgba(0,0,0,.3);
-    background-image: url(../../public/images/images\ placeholder.jpeg) ;
+    background-image: url(/public/images/images\_placeholder.jpeg) ;
 }
 
 .bookPositionInfo {

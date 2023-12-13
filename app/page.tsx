@@ -12,7 +12,6 @@ export default function HomePage() {
             <Slider />
             <PromoLink />
             <FilterBookCategory />
-            <BtnLoadMore />
         </div>
     )
 }

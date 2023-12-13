@@ -1,10 +1,11 @@
-.containerCategory {
+.containerDisplayBooks {
     position: relative;
-    top: 30px;
-    left: 60px;
+    top: -585px;
+    /* left: 60px; */
     display: flex;
     width: 1440;
     max-height: 10146px;
+    background-color: whitesmoke;
 }
 
 .categoryBooks {
@@ -37,13 +38,4 @@
     font-weight: 700;
     color: #1C2A39;
     list-style: inside;
-}
-
-.showecaseBooks {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    left: -60px;
-    width: 964px;
-    max-height: 10146px;
 }

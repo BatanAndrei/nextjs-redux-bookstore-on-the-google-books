@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from '@/redux/store';
 import { selectDataBooks, selectLoadParams } from '@/redux/selectors';
 import { montserrat, openSans } from '@/app/layout';
 import Image from "next/image";
+import BtnLoadMore from '@/components/BtnLoadMore/BtnLoadMore';
 import styles from './books.module.css';
 
 
@@ -13,18 +14,17 @@ export default function Books() {
     const dataListBooks = useAppSelector(selectDataBooks);
     const dispatch = useAppDispatch();
 
-    const textBtnBy = "BUY NOW"
+    const textBtnBy = "BUY NOW";
     
     console.log(dataListBooks);
-
     useEffect(() => {
-        dispatch(fetchBooks(loadParams))
+        dispatch(fetchBooks(loadParams));
     }, [loadParams])
     
     return (
         <div className={styles.containerBooks}>
             {dataListBooks?.map((item, index) => <div key={index} className={styles.bookPosition}>
-                <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.displayNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.imageLinks?.thumbnail}`} width={212} height={310} />
+                <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.bookPositionImageNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.imageLinks?.thumbnail}`} width={212} height={310} />
                 <div className={styles.bookPositionInfo}>
                     <h2 className={openSans.className+' '+styles.bookPositionInfoAuthor}>{item.volumeInfo?.authors.join(', ')}</h2>
                     <h2 className={montserrat.className+' '+styles.bookPositionInfoTitle}>{item.volumeInfo?.title.length < 40 ? item.volumeInfo?.title.slice(0, 40) + '. . .' : item.volumeInfo?.title}</h2>
@@ -71,6 +71,7 @@ export default function Books() {
                     <button className={styles.btnBuyNow} type="button" data-btnbuy="${item.id}">{textBtnBy}</button>
                 </div>
             </div>)}
+            <BtnLoadMore />
         </div>
     )
 }
