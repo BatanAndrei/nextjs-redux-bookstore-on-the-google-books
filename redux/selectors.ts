@@ -23,14 +23,15 @@ export const booksSlice = createSlice({
     initialState,
     reducers: {   
     
-    loadDataReducer: (state) => {
-        state.paramsFetch.maxResults += 6;
+    loadDataReducer: (state, action) => {
+        state.paramsFetch.maxResults += action.payload;
     },
 
-   /*  setCategory: (state) => {
-        state.paramsFetch.listCategories
-        
-    } */
+    filterCategoryReducer: (state, action) => {
+        state.dataBooks.items = [];
+        state.paramsFetch.maxResults = 6;
+        state.paramsFetch.subject = action.payload;
+    }
 
     },
 
@@ -61,9 +62,9 @@ export const booksSlice = createSlice({
 
 export const selectStatus = (state: RootState): "loading" | "idle" => state.booksExtraReducer.status; //статус в booksExtraReducer
 export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataBooks.items;
-export const selectCategoryParams = (state: RootState): string[] => state.booksExtraReducer.listCategories;
+export const selectCategory = (state: RootState): string[] => state.booksExtraReducer.listCategories;
 
 export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;
+export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject
 
-
-export const { loadDataReducer } = booksSlice.actions;
+export const { loadDataReducer, filterCategoryReducer } = booksSlice.actions;

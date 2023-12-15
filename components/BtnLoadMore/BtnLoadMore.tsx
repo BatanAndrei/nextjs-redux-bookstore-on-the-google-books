@@ -11,7 +11,7 @@ export default function BtnLoadMore() {
 
     return (
         <>
-            <button onClick={() => dispatch(loadDataReducer())} className={styles.btnLoadMore} type="button">Load more</button>
+            <button onClick={() => dispatch(loadDataReducer(6))} className={styles.btnLoadMore} type="button">Load more</button>
         </>
     )
 }
