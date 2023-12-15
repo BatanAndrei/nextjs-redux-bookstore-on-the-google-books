@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchBooks } from '@/redux/fetchGet';
 import { RootState  } from '@/redux/store';
+import { listCategories } from '@/datas/categoryData';
 import { TbooksInitState, IdataBooks, IparamsFetch } from '@/types/types';
 
 const initialState: TbooksInitState = {
@@ -13,7 +14,8 @@ const initialState: TbooksInitState = {
         page: 0,
         subject: 'Architecture',
         maxResults: 6,
-    }
+    },
+    listCategories,
 };
 
 export const booksSlice = createSlice({
@@ -23,7 +25,13 @@ export const booksSlice = createSlice({
     
     loadDataReducer: (state) => {
         state.paramsFetch.maxResults += 6;
-    }
+    },
+
+   /*  setCategory: (state) => {
+        state.paramsFetch.listCategories
+        
+    } */
+
     },
 
     extraReducers: (builder) => {
@@ -53,7 +61,9 @@ export const booksSlice = createSlice({
 
 export const selectStatus = (state: RootState): "loading" | "idle" => state.booksExtraReducer.status; //статус в booksExtraReducer
 export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataBooks.items;
+export const selectCategoryParams = (state: RootState): string[] => state.booksExtraReducer.listCategories;
 
 export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;
+
 
 export const { loadDataReducer } = booksSlice.actions;

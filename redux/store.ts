@@ -7,6 +7,7 @@ export const store = configureStore({
     reducer: {
         booksExtraReducer: booksSlice.reducer,
         loadDataReducer: booksSlice.reducer,
+        //setCategory: booksSlice.reducer,
     }
 })
 

@@ -1,7 +1,6 @@
 import styles from './page.module.css';
 import Slider from '@/components/Slider/Slider';
 import FilterBooksCategory from '@/components/FilterBooksCategory/FilterBooksCategory';
-import BtnLoadMore from '@/components/BtnLoadMore/BtnLoadMore';
 import PromoLink from '@/components/PromoLinks/PromoLinks';
 
 

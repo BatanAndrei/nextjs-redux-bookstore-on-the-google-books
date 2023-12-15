@@ -38,6 +38,7 @@ export type TbooksInitState = { // типы для обработки запро
     error: string | null;
     status: "loading" | "idle";
     paramsFetch: IparamsFetch;
+    listCategories: string[];
 };
 
 export interface IparamsFetch {
@@ -46,23 +47,5 @@ export interface IparamsFetch {
     maxResults: number,
 }
 
-export enum listCategories {
-    architecture = 'Architecture',
-    artFashion = 'Art & Fashion',
-    biography = 'Biography',
-    business = 'Business',
-    braftsHobbies = 'Crafts & Hobbies',
-    drama = 'Drama',
-    fiction = 'Fiction',
-    foodDrink = 'Food & Drink',
-    healthWellbeing = 'Health & Wellbeing',
-    historyPolitics = 'History & Politics',
-    humor = 'Humor',
-    poetry = 'Poetry',
-    psychology = 'Psychology',
-    science = 'Science',
-    technology = 'Technology',
-    travelMaps = 'Travel & Maps',
-}
 
 
