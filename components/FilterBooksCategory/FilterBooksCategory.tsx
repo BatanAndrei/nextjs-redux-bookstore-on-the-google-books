@@ -14,13 +14,11 @@ export default function FilterBooksCategory() {
     const subjectCategory = useAppSelector(selectCategoryParams);
     const dispatch = useAppDispatch()
 
-console.log(subjectCategory)
     const handleFilterCategory = (e: React.MouseEvent<HTMLElement>) => {
         let nodeTarget = e.target as HTMLDivElement;
         let indexDataSet = nodeTarget.dataset.category as string;
         dispatch(filterCategoryReducer(indexDataSet))
     }
-
 
     return (
         <div className={styles.containerShowcase}>
