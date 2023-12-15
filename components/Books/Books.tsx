@@ -24,8 +24,8 @@ export default function Books() {
     
     return (
         <div className={styles.containerBooks}>
-            {dataListBooks?.map((item, index) => <div key={index} className={styles.bookPosition}>
-                <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.bookPositionImageNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.imageLinks?.thumbnail}`} width={212} height={310} />
+            {dataListBooks.map((item, index) => <div key={index} className={styles.bookPosition}>
+                <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.bookPositionImageNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.description}`} width={212} height={310} />
                 <div className={styles.bookPositionInfo}>
                     <h2 className={openSans.className+' '+styles.bookPositionInfoAuthor}>{item.volumeInfo?.authors}</h2>
                     <h2 className={montserrat.className+' '+styles.bookPositionInfoTitle}>{item.volumeInfo?.title.length < 40 ? item.volumeInfo?.title.slice(0, 40) + '. . .' : item.volumeInfo?.title}</h2>
