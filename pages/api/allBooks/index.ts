@@ -13,7 +13,7 @@ export default async function requestAllBooks(req: NextApiRequest, res: NextApiR
     gbooksReqParams.set('maxResults', `6`);
     gbooksReqParams.set('langRestrict', `en`);
     
-    const result = await fetch(`https://www.googleapis.com/books/v1/volumes?${gbooksReqParams.toString()}`)
+    const result = await fetch(``)
     
     const booksData = await result.json();
 
