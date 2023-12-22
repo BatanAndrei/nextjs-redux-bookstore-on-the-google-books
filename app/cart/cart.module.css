@@ -113,3 +113,45 @@
     line-height: 14px;
     color: #5C6A79;
 }
+
+.quantityInfo {
+    display: flex;
+    justify-content: space-between;
+    margin: 31px 0px 0px 100px;
+    width: 176px;
+    height: 45px;
+    border: 1px solid #EEEDF5;
+}
+
+.infoCount {
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    color:#5C6A79;
+}
+
+.button {
+    margin-top: 2px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.wrapperPrice {
+    margin: 37px 0px 0px 85px;
+    width: 57px;
+    height: 30px;
+}
+
+.priceInfo {
+    margin: 5px 0px 0px 0px;
+}
+
+.deleveryInfo {
+    margin: 37px 0px 0px 205px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #5C6A79;
+}

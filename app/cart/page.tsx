@@ -5,6 +5,8 @@ import { selectCartItems } from '@/redux/selectors';
 import Image from 'next/image';
 import { montserrat, openSans } from '@/app/layout';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
+import SvgPlus from '@/public/svgComponents/svgPlus';
+import SvgMinus from '@/public/svgComponents/svgMinus';
 
 export default function Cart() {
 
@@ -67,9 +69,15 @@ export default function Cart() {
                         </div>
                     </div>
                 </div>
-                <div className={styles.quantityInfo}></div>
-                <div className={styles.priceInfo}></div>
-                <div className={styles.deleveryInfo}></div>
+                <div className={styles.quantityInfo}>
+                    <button className={styles.button}><SvgMinus /></button>
+                    <div className={montserrat.className+' '+styles.infoCount}>1</div>
+                    <button className={styles.button}><SvgPlus /></button>
+                </div>
+                <div className={styles.wrapperPrice}>
+                    <h3 className={`${item.saleInfo?.retailPrice?.amount ? styles.priceInfo : styles.displayNone}`}>&#36;{item.saleInfo?.retailPrice?.amount}</h3>
+                </div>
+                <h3 className={montserrat.className+' '+styles.deleveryInfo}>Shipping: delivery</h3>
             </div>)}
         </div>
     )
