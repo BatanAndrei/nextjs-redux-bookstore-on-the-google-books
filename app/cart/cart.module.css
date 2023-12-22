@@ -3,8 +3,7 @@
     top: 110px;
     left:40px;
     width: 1440px;
-    height: 842px;
-    border: 1px solid;
+    max-height: 2842px;
 }
 
 .titleCart {
@@ -17,7 +16,6 @@
     display: flex;
     width: 1440px;
     height: 42px;
-    border: 1px solid;
 }
 
 .nameColumn {
@@ -40,4 +38,76 @@
 
 .delivery {
     margin-left: 223px;
+}
+
+.containerInfo {
+    display: flex;
+    margin: 30px 0px 0px 145px;
+}
+
+.itemFoto {
+    display: flex;
+    width: 304px;
+    height: 146;
+    border: 1px solid;
+}
+
+.itemInfo {
+    width: 202px;
+    height: 146;
+    border: 1px solid;
+}
+
+.bookPositionInfoTitle {
+    margin: 39px 0px 0px 25px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #1C2A39;
+}
+
+.bookPositionInfoAuthor {
+    margin: 8px 0px 0px 25px;
+    font-weight: 400;
+    font-size: 10px;
+    color: #5C6A79;
+}
+
+.ratingBlock {
+    display: flex;
+    align-items: center;
+    margin: 11px 0px 0px 25px;
+    width: 176px;
+    height: 15px;
+}
+
+.displayNone {
+    display: none;
+}
+
+.ratingBlockStarsAll {
+    display: flex;
+    width: 65px;
+    height: 15px;
+}
+
+.ratingBlockStarsYellow {
+    width: 12PX;
+    height: 12PX;
+    background-image: url(../../public/Star\ yellow.svg);
+}
+
+.ratingBlockStarsGrey {
+    width: 12PX;
+    height: 12PX;
+    background-image: url(../../public/Star\ grey.svg);
+}
+
+.ratingBlockCount {
+    margin-left: 6px;
+    width: 100px;
+    height: 15px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    color: #5C6A79;
 }

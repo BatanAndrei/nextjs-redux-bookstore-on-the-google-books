@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { fetchBooks } from '@/redux/fetchGet';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { selectDataBooks, selectLoadParams, setItemsCartReducer } from '@/redux/selectors';
+import { selectDataBooks, selectLoadParams, addItemsCartReducer } from '@/redux/selectors';
 import { montserrat, openSans } from '@/app/layout';
 import Image from "next/image";
 import BtnLoadMore from '@/components/BtnLoadMore/BtnLoadMore';
@@ -13,24 +13,28 @@ export default function Books() {
     const loadParams = useAppSelector(selectLoadParams);
     const dataListBooks = useAppSelector(selectDataBooks);
     const dispatch = useAppDispatch();
+    //let textBtnBy = "IN THE CART";
+    let textBtnBy = "BUY NOW";
+    
 
-    const textBtnBy = "BUY NOW";
-    
-    //console.log(dataListBooks)
-    
+
     useEffect(() => {
         dispatch(fetchBooks(loadParams));
     }, [loadParams]);
 
     const heandleBuyBook = (e: React.MouseEvent<HTMLElement>) => {
-        //console.log(e.target)
-            dispatch(setItemsCartReducer(dataListBooks))
+
+        let nodeTarget = e.target as HTMLDivElement;
+        let indexDataSet = nodeTarget.dataset.btnbuy as string; 
+
+        dispatch(addItemsCartReducer(dataListBooks.find(book => book.id === indexDataSet)))
+        
         e.stopPropagation();
     }
     
     return (
         <div className={styles.containerBooks}>
-            {dataListBooks.map((item, index) => <div key={index} className={styles.bookPosition}>
+            {dataListBooks.map((item) => <div key={item.id} className={styles.bookPosition}>
                 <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.bookPositionImageNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.title}`} width={212} height={310} />
                 <div className={styles.bookPositionInfo}>
                     <h2 className={openSans.className+' '+styles.bookPositionInfoAuthor}>{item.volumeInfo?.authors}</h2>
@@ -75,7 +79,7 @@ export default function Books() {
                     </div>
                     <h2 className={`${item.volumeInfo?.description ? styles.bookPositionInfoDescription : styles.displayNone}`}>${item.volumeInfo?.description}</h2>
                     <h2 className={`${item.saleInfo?.retailPrice?.amount ? styles.bookPositionInfoSale : styles.displayNone}`}>&#36;{item.saleInfo?.retailPrice?.amount}</h2>
-                    <button className={styles.btnBuyNow} type="button" data-btnbuy={index} onClick={(e) => heandleBuyBook(e) }>{textBtnBy}</button>
+                    <button className={styles.btnBuyNow} type="button" data-btnbuy={item.id} onClick={(e) => heandleBuyBook(e) }>{textBtnBy}</button>
                 </div>
             </div>)}
             <BtnLoadMore />

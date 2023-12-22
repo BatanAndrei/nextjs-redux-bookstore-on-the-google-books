@@ -45,7 +45,7 @@ export type TbooksInitState = { // типы для обработки запро
     listCategories: string[];
     dataCart: {
         itemsCart: IdataBooks[],
-    }
+    };
 };
 
 export interface IparamsFetch {
