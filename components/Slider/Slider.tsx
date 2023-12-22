@@ -9,10 +9,9 @@ import { selectSlider, selectSliderIndex, sliderReducer, moveDotsReducer } from 
 
 export default function Slider() {
 
-    const slider = useAppSelector(selectSlider);
+    const imageSlider = useAppSelector(selectSlider);
     const indexSlider = useAppSelector(selectSliderIndex);
     const dispatch = useAppDispatch()
-
 
 useEffect(() => {
     let intervalId = setInterval(() => {
@@ -21,10 +20,9 @@ useEffect(() => {
         return () => clearInterval(intervalId);
     }, [indexSlider]); 
 
-
     return (
         <div className={styles.containerSlider}>
-            {slider.map((item, itemIndex) => {
+            {imageSlider.map((item, itemIndex) => {
 
                 return (
                     <div className={indexSlider === itemIndex ? styles.positionActive : styles.positionSlide} key={item.id}>
