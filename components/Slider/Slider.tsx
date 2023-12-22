@@ -2,40 +2,32 @@
 
 import Image from 'next/image';
 import styles from './slider.module.css';
-import { sliderData } from '@/datas/sliderData';
-import { useState, useEffect } from 'react';
-import { IdataSlider } from '@/types/types';
+import { useEffect } from 'react';
+import { useAppSelector, useAppDispatch } from '@/redux/store';
+import { selectSlider, selectSliderIndex, sliderReducer, moveDotsReducer } from '@/redux/selectors';
 
 
 export default function Slider() {
 
-    const [images, setImages] = useState<IdataSlider[]>(sliderData);
-    const [currentIndex, setCurrentIndex] = useState<number>(0);
-    
-    const autoPlay = () => {
-        if(currentIndex !== images.length - 1) {
-            setCurrentIndex((prev) => prev + 1);
-        }else if(currentIndex === images.length - 1) {
-            setCurrentIndex(0);
-        }
-    }
+    const slider = useAppSelector(selectSlider);
+    const indexSlider = useAppSelector(selectSliderIndex);
+    const dispatch = useAppDispatch()
+
+
 useEffect(() => {
     let intervalId = setInterval(() => {
-        autoPlay()
+        dispatch(sliderReducer())
         }, 5000);
         return () => clearInterval(intervalId);
-    }, [currentIndex]); 
+    }, [indexSlider]); 
 
-    const moveDote = (index: number) => {
-        setCurrentIndex(index)
-    }
 
     return (
         <div className={styles.containerSlider}>
-            {images.map((item, itemIndex) => {
+            {slider.map((item, itemIndex) => {
 
                 return (
-                    <div className={currentIndex === itemIndex ? styles.positionActive : styles.positionSlide} key={item.id}>
+                    <div className={indexSlider === itemIndex ? styles.positionActive : styles.positionSlide} key={item.id}>
                         <Image src={item.image} alt={item.image} width={1120} height={702}></Image>
                     </div>
                 )
@@ -44,8 +36,8 @@ useEffect(() => {
                 {Array.from({length: 3}).map((item, index) => {
 
                     return (
-                        <div key={index} onClick={() => moveDote(index)}
-                        className={currentIndex === index ? styles.activeDote : styles.dot}>
+                        <div key={index} onClick={() => dispatch(moveDotsReducer(index))}
+                        className={indexSlider === index ? styles.activeDote : styles.dot}>
                     </div>
                     )
                 })}

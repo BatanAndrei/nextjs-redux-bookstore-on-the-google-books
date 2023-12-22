@@ -2,26 +2,43 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchBooks } from '@/redux/fetchGet';
 import { RootState  } from '@/redux/store';
 import { listCategories } from '@/datas/categoryData';
-import { TbooksInitState, IdataBooks, IparamsFetch } from '@/types/types';
+import { sliderData } from '@/datas/sliderData';
+import { TbooksInitState, IdataBooks, IparamsFetch, IdataSlider } from '@/types/types';
 
 const initialState: TbooksInitState = {
+    sliderData,
+    sliderIndex: 0,
     dataBooks: {
         items: [],
     },
     error: null,
     status: "idle",
     paramsFetch: {
-        page: 0,
         subject: 'Architecture',
         maxResults: 6,
     },
     listCategories,
+    dataCart: {
+        itemsCart: [],
+    },
 };
 
 export const booksSlice = createSlice({
     name: "books",
     initialState,
     reducers: {   
+
+    sliderReducer: (state) => {
+        if(state.sliderIndex !== state.sliderData.length - 1) {
+            state.sliderIndex += 1;
+        }else if(state.sliderIndex === state.sliderData.length - 1) {
+            state.sliderIndex = 0;
+        }
+    },
+
+    moveDotsReducer: (state, action) => {
+        state.sliderIndex = action.payload;
+    },
     
     loadDataReducer: (state, action) => {
         state.paramsFetch.maxResults += action.payload;
@@ -31,6 +48,14 @@ export const booksSlice = createSlice({
         state.dataBooks.items = [];
         state.paramsFetch.maxResults = 6;
         state.paramsFetch.subject = action.payload;
+    },
+
+    setItemsCartReducer: (state, action) => {
+        state.dataCart.itemsCart.push(action.payload);
+    },
+
+    deleteItemsCartReducer: (state, action) => {
+        state.dataCart.itemsCart = state.dataCart.itemsCart.filter(book => book.id !== action.payload);
     }
 
     },
@@ -65,6 +90,8 @@ export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksEx
 export const selectCategory = (state: RootState): string[] => state.booksExtraReducer.listCategories;
 
 export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;
-export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject
+export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject;
+export const selectSlider = (state: RootState): IdataSlider[] => state.sliderReducer.sliderData;
+export const selectSliderIndex = (state: RootState): number => state.sliderReducer.sliderIndex;
 
-export const { loadDataReducer, filterCategoryReducer } = booksSlice.actions;
+export const { loadDataReducer, filterCategoryReducer, setItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer } = booksSlice.actions;

@@ -13,7 +13,9 @@ export type TfetchTicketsError = {  // тип описывает структу�
     message: string;
     };
 
+
 export interface IdataBooks {
+    id: string,
     volumeInfo: {
         imageLinks: {
             thumbnail: string,
@@ -32,6 +34,8 @@ export interface IdataBooks {
 };
 
 export type TbooksInitState = { // типы для обработки запроса статусов к серверу
+    sliderData: IdataSlider[],
+    sliderIndex: number,
     dataBooks: {
         items: IdataBooks[],
     }
@@ -39,10 +43,12 @@ export type TbooksInitState = { // типы для обработки запро
     status: "loading" | "idle";
     paramsFetch: IparamsFetch;
     listCategories: string[];
+    dataCart: {
+        itemsCart: IdataBooks[],
+    }
 };
 
 export interface IparamsFetch {
-    page: number,
     subject: string,
     maxResults: number,
 }

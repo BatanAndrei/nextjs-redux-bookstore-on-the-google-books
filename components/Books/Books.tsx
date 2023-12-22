@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { fetchBooks } from '@/redux/fetchGet';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { selectDataBooks, selectLoadParams } from '@/redux/selectors';
+import { selectDataBooks, selectLoadParams, setItemsCartReducer } from '@/redux/selectors';
 import { montserrat, openSans } from '@/app/layout';
 import Image from "next/image";
 import BtnLoadMore from '@/components/BtnLoadMore/BtnLoadMore';
@@ -16,10 +16,17 @@ export default function Books() {
 
     const textBtnBy = "BUY NOW";
     
+    //console.log(dataListBooks)
     
     useEffect(() => {
         dispatch(fetchBooks(loadParams));
-    }, [loadParams])
+    }, [loadParams]);
+
+    const heandleBuyBook = (e: React.MouseEvent<HTMLElement>) => {
+        //console.log(e.target)
+            dispatch(setItemsCartReducer(dataListBooks))
+        e.stopPropagation();
+    }
     
     return (
         <div className={styles.containerBooks}>
@@ -68,7 +75,7 @@ export default function Books() {
                     </div>
                     <h2 className={`${item.volumeInfo?.description ? styles.bookPositionInfoDescription : styles.displayNone}`}>${item.volumeInfo?.description}</h2>
                     <h2 className={`${item.saleInfo?.retailPrice?.amount ? styles.bookPositionInfoSale : styles.displayNone}`}>&#36;{item.saleInfo?.retailPrice?.amount}</h2>
-                    <button className={styles.btnBuyNow} type="button" data-btnbuy="${item.id}">{textBtnBy}</button>
+                    <button className={styles.btnBuyNow} type="button" data-btnbuy={index} onClick={(e) => heandleBuyBook(e) }>{textBtnBy}</button>
                 </div>
             </div>)}
             <BtnLoadMore />

@@ -17,7 +17,8 @@ export default function FilterBooksCategory() {
     const handleFilterCategory = (e: React.MouseEvent<HTMLElement>) => {
         let nodeTarget = e.target as HTMLDivElement;
         let indexDataSet = nodeTarget.dataset.category as string;
-        dispatch(filterCategoryReducer(indexDataSet))
+        dispatch(filterCategoryReducer(indexDataSet));
+        e.stopPropagation();
     }
 
     return (
