@@ -23,7 +23,7 @@ export default function Cart() {
             {cartItems.map((item) => 
             <div className={styles.containerInfo}>
                 <div className={styles.itemFoto}>
-                    <Image src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.title}`} width={102} height={145} />
+                    <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.bookPositionImageNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.title}`} width={102} height={145} />
                     <div className={styles.itemInfo}>
                         <h2 className={montserrat.className+' '+styles.bookPositionInfoTitle}>{item.volumeInfo?.title.length < 40 ? item.volumeInfo?.title.slice(0, 15) + '. . .' : item.volumeInfo?.title}</h2>
                         <h3 className={openSans.className+' '+styles.bookPositionInfoAuthor}>{item.volumeInfo?.authors}</h3>

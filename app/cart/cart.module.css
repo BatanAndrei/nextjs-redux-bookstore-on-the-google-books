@@ -42,20 +42,23 @@
 
 .containerInfo {
     display: flex;
-    margin: 30px 0px 0px 145px;
+    margin: 30px 0px 77px 145px;
+}
+
+.bookPositionImage {
+    margin-top: 40px;
+    box-shadow: 5px 15px 5px rgba(0,0,0,.3);
 }
 
 .itemFoto {
     display: flex;
     width: 304px;
     height: 146;
-    border: 1px solid;
 }
 
 .itemInfo {
     width: 202px;
     height: 146;
-    border: 1px solid;
 }
 
 .bookPositionInfoTitle {
