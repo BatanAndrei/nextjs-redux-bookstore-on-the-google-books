@@ -12,7 +12,6 @@ export const store = configureStore({
         deleteItemsCartReducer: booksSlice.reducer,
         sliderReducer: booksSlice.reducer,
         moveDotsReducer: booksSlice.reducer,
-        toggleTextBtnReducer: booksSlice.reducer,
     }
 })
 
