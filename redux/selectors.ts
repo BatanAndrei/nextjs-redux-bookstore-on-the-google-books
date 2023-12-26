@@ -72,10 +72,6 @@ export const booksSlice = createSlice({
         });
     },
 
-    /* viewReducer: (state, action) => {
-        state.dataCartDetails.itemsCartDetails = state.dataCartDetails.itemsCartDetails.filter(book => book.id === action.payload);
-    }, */
-
     },
 
     extraReducers: (builder) => {
@@ -107,14 +103,14 @@ export const selectStatus = (state: RootState): "loading" | "idle" => state.book
 export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataBooks.items;
 export const selectCategory = (state: RootState): string[] => state.booksExtraReducer.listCategories;
 export const selectCartItems = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCart.itemsCart;
-//export const selectCartItemsDetails = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCartDetails.itemsCartDetails;
+export const selectViewItemCount = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCartDetails.itemsCartDetails;
 
 
 export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;
 export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject;
 export const selectSlider = (state: RootState): IdataSlider[] => state.sliderReducer.sliderData;
 export const selectSliderIndex = (state: RootState): number => state.sliderReducer.sliderIndex;
-export const selectViewItemCount = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCartDetails.itemsCartDetails;
+
 
 
 export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer } = booksSlice.actions;
