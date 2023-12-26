@@ -124,16 +124,29 @@
 }
 
 .infoCount {
-    margin-top: 12px;
+    margin: 12px 0px 0px 25px;
     font-weight: 700;
     font-size: 16px;
     color:#5C6A79;
 }
 
-.button {
-    margin-top: 2px;
+.buttonPlus {
+    font-weight: 400;
+    font-size: 40px;
     width: 45px;
     height: 45px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.buttonMinus {
+    margin: -4px 0px 0px 5px;
+    font-weight: 400;
+    font-size: 45px;
+    vertical-align: top;
+    width: 0px;
+    height: 0px;
     border: none;
     background-color: white;
     cursor: pointer;
