@@ -16,15 +16,15 @@ export default function Cart() {
     //console.log(cartItems);
 
     const heandlePlus = (e: React.MouseEvent<HTMLElement>) => {
-        console.log(e.target);
         let nodeTarget = e.target as HTMLDivElement;
-        let indexDataSet = nodeTarget.dataset.btnbuy as string;
+        let indexDataSet = nodeTarget.dataset.btncount as string;
+        console.log(indexDataSet);
     };
 
     const heandleMinus = (e: React.MouseEvent<HTMLElement>) => {
-        console.log(e.target);
         let nodeTarget = e.target as HTMLDivElement;
-        let indexDataSet = nodeTarget.dataset.btnbuy as string;
+        let indexDataSet = nodeTarget.dataset.btncount as string;
+        console.log(indexDataSet);
     };
 
     return (
@@ -84,9 +84,9 @@ export default function Cart() {
                     </div>
                 </div>
                 <div className={styles.quantityInfo}>
-                    <button className={styles.buttonMinus} data-btnCount={item.id} onClick={(e) => heandleMinus(e)} >&minus;</button>
+                    <button className={styles.buttonMinus} data-btncount={item.id} onClick={(e) => heandleMinus(e)} >&minus;</button>
                     <div className={montserrat.className+' '+styles.infoCount}>{item.numberItemBooks}</div>
-                    <button className={styles.buttonPlus} data-btnCount={item.id} onClick={(e) => heandlePlus(e)} >&#43;</button>
+                    <button className={styles.buttonPlus} data-btncount={item.id} onClick={(e) => heandlePlus(e)} >&#43;</button>
                 </div>
                 <div className={styles.wrapperPrice}>
                     <h3 className={`${item.saleInfo?.retailPrice?.amount ? styles.priceInfo : styles.displayNone}`}>&#36;{item.saleInfo?.retailPrice?.amount}</h3>
