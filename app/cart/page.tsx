@@ -8,11 +8,12 @@ import { useAppSelector, useAppDispatch } from '@/redux/store';
 import SvgPlus from '@/public/svgComponents/svgPlus';
 import SvgMinus from '@/public/svgComponents/svgMinus';
 
+
 export default function Cart() {
 
     const cartItems = useAppSelector(selectCartItems);
     //const dispatch = useAppDispatch();
-    console.log(cartItems)
+    //console.log(cartItems)
     return (
         <div className={styles.containerCart}>
             <h2 className={styles.titleCart}>SHOPPING CART</h2>

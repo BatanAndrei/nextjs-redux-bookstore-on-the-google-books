@@ -21,7 +21,6 @@ const initialState: TbooksInitState = {
     dataCart: {
         itemsCart: [],
     },
-    
 };
 
 export const booksSlice = createSlice({
@@ -50,6 +49,7 @@ export const booksSlice = createSlice({
         state.paramsFetch.maxResults = 6;
         state.paramsFetch.subject = action.payload;
     },
+
 
     addItemsCartReducer: (state, action) => {
         state.dataCart.itemsCart = [...state.dataCart.itemsCart, {...action.payload}];
@@ -95,5 +95,6 @@ export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDa
 export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject;
 export const selectSlider = (state: RootState): IdataSlider[] => state.sliderReducer.sliderData;
 export const selectSliderIndex = (state: RootState): number => state.sliderReducer.sliderIndex;
+
 
 export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer } = booksSlice.actions;

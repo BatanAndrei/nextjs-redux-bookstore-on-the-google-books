@@ -30,7 +30,7 @@ export interface IdataBooks {
         retailPrice: {
             amount: number,
         }
-    }
+    },
 };
 
 export type TbooksInitState = { // типы для обработки запроса статусов к серверу
@@ -38,7 +38,7 @@ export type TbooksInitState = { // типы для обработки запро
     sliderIndex: number,
     dataBooks: {
         items: IdataBooks[],
-    }
+    };
     error: string | null;
     status: "loading" | "idle";
     paramsFetch: IparamsFetch;
@@ -51,6 +51,10 @@ export type TbooksInitState = { // типы для обработки запро
 export interface IparamsFetch {
     subject: string,
     maxResults: number,
+};
+
+export type TpropsBtnBuy = {
+    id: string,
 }
 
 

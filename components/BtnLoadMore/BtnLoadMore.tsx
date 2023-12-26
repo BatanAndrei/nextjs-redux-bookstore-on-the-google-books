@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './btnLoadMore.module.css';
-import { useAppSelector, useAppDispatch } from '@/redux/store';
+import { useAppDispatch } from '@/redux/store';
 import { loadDataReducer } from '@/redux/selectors';
 
 

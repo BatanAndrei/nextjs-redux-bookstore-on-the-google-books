@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { fetchBooks } from '@/redux/fetchGet';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { selectDataBooks, selectLoadParams, addItemsCartReducer } from '@/redux/selectors';
+import { selectDataBooks, selectLoadParams } from '@/redux/selectors';
 import { montserrat, openSans } from '@/app/layout';
 import Image from "next/image";
 import BtnLoadMore from '@/components/BtnLoadMore/BtnLoadMore';
 import styles from './books.module.css';
+import BtnBuy from '@/components/BtnBuy/BtnBuy';
 
 
 export default function Books() {
@@ -13,24 +14,13 @@ export default function Books() {
     const loadParams = useAppSelector(selectLoadParams);
     const dataListBooks = useAppSelector(selectDataBooks);
     const dispatch = useAppDispatch();
-    //let textBtnBy = "IN THE CART";
-    let textBtnBy = "BUY NOW";
-    
 
-
+    //console.log(dataListBooks)
     useEffect(() => {
         dispatch(fetchBooks(loadParams));
     }, [loadParams]);
 
-    const heandleBuyBook = (e: React.MouseEvent<HTMLElement>) => {
-
-        let nodeTarget = e.target as HTMLDivElement;
-        let indexDataSet = nodeTarget.dataset.btnbuy as string; 
-
-        dispatch(addItemsCartReducer(dataListBooks.find(book => book.id === indexDataSet)))
-        
-        e.stopPropagation();
-    }
+    
     
     return (
         <div className={styles.containerBooks}>
@@ -79,7 +69,7 @@ export default function Books() {
                     </div>
                     <h2 className={`${item.volumeInfo?.description ? styles.bookPositionInfoDescription : styles.displayNone}`}>${item.volumeInfo?.description}</h2>
                     <h2 className={`${item.saleInfo?.retailPrice?.amount ? styles.bookPositionInfoSale : styles.displayNone}`}>&#36;{item.saleInfo?.retailPrice?.amount}</h2>
-                    <button className={styles.btnBuyNow} type="button" data-btnbuy={item.id} onClick={(e) => heandleBuyBook(e) }>{textBtnBy}</button>
+                    <BtnBuy id={item.id} />
                 </div>
             </div>)}
             <BtnLoadMore />
