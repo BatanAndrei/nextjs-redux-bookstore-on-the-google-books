@@ -21,7 +21,10 @@ const initialState: TbooksInitState = {
     dataCart: {
         itemsCart: [],
     },
-    numberItemAllBooks: 0,
+    dataCartDetails: {
+        itemsCartDetails: [],
+    },
+    //numberItemBooks: 0,
 };
 
 export const booksSlice = createSlice({
@@ -52,14 +55,26 @@ export const booksSlice = createSlice({
     },
 
     addItemsCartReducer: (state, action) => {
-        state.dataCart.itemsCart = [...state.dataCart.itemsCart, {...action.payload, numberItemBooks: 1}];
-        state.numberItemAllBooks +=1;
+        state.dataCart.itemsCart = [...state.dataCart.itemsCart, {...action.payload}];
     },
 
     deleteItemsCartReducer: (state, action) => {
         state.dataCart.itemsCart = state.dataCart.itemsCart.filter(book => book.id !== action.payload);
-        state.numberItemAllBooks -=1;
     },
+
+    increaseReducer: (state, action) => {
+        state.dataCartDetails.itemsCartDetails = [...state.dataCartDetails.itemsCartDetails, {...action.payload}];
+    },
+
+    decreaseReducer: (state, action) => {
+        state.dataCartDetails.itemsCartDetails.forEach((el, i) => {
+            if(el.id === action.payload) state.dataCartDetails.itemsCartDetails.splice(i, 1)
+        });
+    },
+
+    /* viewReducer: (state, action) => {
+        state.dataCartDetails.itemsCartDetails = state.dataCartDetails.itemsCartDetails.filter(book => book.id === action.payload);
+    }, */
 
     },
 
@@ -74,7 +89,7 @@ export const booksSlice = createSlice({
         builder
         .addCase(fetchBooks.fulfilled, 
             (state, { payload }) => { 
-            state.dataBooks = {...state.dataBooks, ...payload}
+            state.dataBooks = {...state.dataBooks, ...payload};
             state.status = "idle";
     });
 
@@ -92,13 +107,14 @@ export const selectStatus = (state: RootState): "loading" | "idle" => state.book
 export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataBooks.items;
 export const selectCategory = (state: RootState): string[] => state.booksExtraReducer.listCategories;
 export const selectCartItems = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCart.itemsCart;
-export const selectNumberItemAllBooks = (state: RootState): number => state.booksExtraReducer.numberItemAllBooks;
+//export const selectCartItemsDetails = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCartDetails.itemsCartDetails;
 
 
 export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;
 export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject;
 export const selectSlider = (state: RootState): IdataSlider[] => state.sliderReducer.sliderData;
 export const selectSliderIndex = (state: RootState): number => state.sliderReducer.sliderIndex;
+export const selectViewItemCount = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCartDetails.itemsCartDetails;
 
 
-export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer } = booksSlice.actions;
+export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer } = booksSlice.actions;

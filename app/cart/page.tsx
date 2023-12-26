@@ -1,31 +1,33 @@
 "use client"
 
 import styles from './cart.module.css'
-import { selectCartItems } from '@/redux/selectors';
 import Image from 'next/image';
 import { montserrat, openSans } from '@/app/layout';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import SvgPlus from '@/public/svgComponents/svgPlus';
-import SvgMinus from '@/public/svgComponents/svgMinus';
+import { increaseReducer, decreaseReducer, selectCartItems,  selectViewItemCount} from '@/redux/selectors';
 
 
 export default function Cart() {
 
     const cartItems = useAppSelector(selectCartItems);
-    //const dispatch = useAppDispatch();
-    //console.log(cartItems);
+    const cartItemsDetails = useAppSelector(selectViewItemCount);
+    const dispatch = useAppDispatch();
+    console.log(cartItemsDetails);
 
     const heandlePlus = (e: React.MouseEvent<HTMLElement>) => {
         let nodeTarget = e.target as HTMLDivElement;
         let indexDataSet = nodeTarget.dataset.btncount as string;
-        console.log(indexDataSet);
+        dispatch(increaseReducer(cartItems.find(book => book.id === indexDataSet)));
+        //dispatch(viewReducer(indexDataSet))
     };
 
     const heandleMinus = (e: React.MouseEvent<HTMLElement>) => {
         let nodeTarget = e.target as HTMLDivElement;
         let indexDataSet = nodeTarget.dataset.btncount as string;
-        console.log(indexDataSet);
+        dispatch(decreaseReducer(indexDataSet));
+        //dispatch(viewReducer(indexDataSet))
     };
+
 
     return (
         <div className={styles.containerCart}>
@@ -37,7 +39,7 @@ export default function Cart() {
                 <h3 className={styles.nameColumn+' '+styles.delivery}>DELIVERY</h3>
             </div>
             {cartItems.map((item) => 
-            <div className={styles.containerInfo}>
+            <div className={styles.containerInfo} key={item.id}>
                 <div className={styles.itemFoto}>
                     <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.bookPositionImageNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.title}`} width={102} height={145} />
                     <div className={styles.itemInfo}>
@@ -85,7 +87,7 @@ export default function Cart() {
                 </div>
                 <div className={styles.quantityInfo}>
                     <button className={styles.buttonMinus} data-btncount={item.id} onClick={(e) => heandleMinus(e)} >&minus;</button>
-                    <div className={montserrat.className+' '+styles.infoCount}>{item.numberItemBooks}</div>
+                    <div className={montserrat.className+' '+styles.infoCount}>{cartItemsDetails.filter(book => book.id === item.id).length + 1}</div>
                     <button className={styles.buttonPlus} data-btncount={item.id} onClick={(e) => heandlePlus(e)} >&#43;</button>
                 </div>
                 <div className={styles.wrapperPrice}>

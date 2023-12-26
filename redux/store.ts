@@ -12,6 +12,9 @@ export const store = configureStore({
         deleteItemsCartReducer: booksSlice.reducer,
         sliderReducer: booksSlice.reducer,
         moveDotsReducer: booksSlice.reducer,
+        decreaseReducer: booksSlice.reducer,
+        increaseReducer: booksSlice.reducer,
+        viewReducer: booksSlice.reducer,
     }
 })
 
