@@ -93,3 +93,18 @@
     background-color: red;
     color: white;
 }
+
+.navInfoCartFlagWhite {
+    position: relative;
+    top: 7px;
+    left: -26px;
+    padding: 2.5px 0px 0px 5px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    text-transform: capitalize;
+    width: 10px;
+    height: 13px;
+    border-radius: 50%;
+    color: white;
+}

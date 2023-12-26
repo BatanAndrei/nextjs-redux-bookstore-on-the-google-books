@@ -21,6 +21,7 @@ const initialState: TbooksInitState = {
     dataCart: {
         itemsCart: [],
     },
+    numberItemAllBooks: 0,
 };
 
 export const booksSlice = createSlice({
@@ -50,13 +51,14 @@ export const booksSlice = createSlice({
         state.paramsFetch.subject = action.payload;
     },
 
-
     addItemsCartReducer: (state, action) => {
-        state.dataCart.itemsCart = [...state.dataCart.itemsCart, {...action.payload}];
+        state.dataCart.itemsCart = [...state.dataCart.itemsCart, {...action.payload, numberItemBooks: 1}];
+        state.numberItemAllBooks +=1;
     },
 
     deleteItemsCartReducer: (state, action) => {
         state.dataCart.itemsCart = state.dataCart.itemsCart.filter(book => book.id !== action.payload);
+        state.numberItemAllBooks -=1;
     },
 
     },
@@ -90,6 +92,8 @@ export const selectStatus = (state: RootState): "loading" | "idle" => state.book
 export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataBooks.items;
 export const selectCategory = (state: RootState): string[] => state.booksExtraReducer.listCategories;
 export const selectCartItems = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCart.itemsCart;
+export const selectNumberItemAllBooks = (state: RootState): number => state.booksExtraReducer.numberItemAllBooks;
+
 
 export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;
 export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject;

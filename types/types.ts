@@ -31,6 +31,7 @@ export interface IdataBooks {
             amount: number,
         }
     },
+    numberItemBooks: number,
 };
 
 export type TbooksInitState = { // типы для обработки запроса статусов к серверу
@@ -46,6 +47,7 @@ export type TbooksInitState = { // типы для обработки запро
     dataCart: {
         itemsCart: IdataBooks[],
     };
+    numberItemAllBooks: number,
 };
 
 export interface IparamsFetch {
