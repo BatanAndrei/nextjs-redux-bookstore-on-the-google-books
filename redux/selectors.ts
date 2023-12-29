@@ -24,7 +24,7 @@ const initialState: TbooksInitState = {
     dataCartDetails: {
         itemsCartDetails: [],
     },
-    //numberItemBooks: 0,
+    totalPrice: 0,
 };
 
 export const booksSlice = createSlice({
@@ -66,10 +66,10 @@ export const booksSlice = createSlice({
         state.dataCartDetails.itemsCartDetails = [...state.dataCartDetails.itemsCartDetails, {...action.payload}];
     },
 
-    decreaseReducer: (state, action) => {
+    decreaseReducer: (state, action) => {   
         state.dataCartDetails.itemsCartDetails.forEach((el, i) => {
             if(el.id === action.payload) state.dataCartDetails.itemsCartDetails.splice(i, 1)
-        });
+        }); 
     },
 
     },
@@ -110,7 +110,6 @@ export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDa
 export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject;
 export const selectSlider = (state: RootState): IdataSlider[] => state.sliderReducer.sliderData;
 export const selectSliderIndex = (state: RootState): number => state.sliderReducer.sliderIndex;
-
 
 
 export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer } = booksSlice.actions;
