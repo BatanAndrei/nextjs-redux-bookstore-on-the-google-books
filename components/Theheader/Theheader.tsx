@@ -10,7 +10,7 @@ import SvgCart from '@/public/svgComponents/svgCart';
 import { clsx } from 'clsx';
 import { usePathname } from 'next/navigation'
 import LoginForm from '@/components/LoginForm/LoginForm';
-import { selectCartItems } from '@/redux/selectors';
+import { selectCartItems, selectViewItemCount } from '@/redux/selectors';
 import { useAppSelector } from '@/redux/store';
 
 
@@ -18,6 +18,7 @@ export default function Theheader() {
 
     const pathname = usePathname();
     const cartItems = useAppSelector(selectCartItems);
+    const cartItemsDetails = useAppSelector(selectViewItemCount);
 
     let login: boolean = true;
     
@@ -35,7 +36,7 @@ export default function Theheader() {
                     <Link className={clsx({[styles.disabled]: pathname === "/profile"})} href={login ? "/profile" : "" } ><SvgUser /></Link>
                     <Link className={styles.navInfoSearch} href=""><SvgSearch /></Link>
                     <Link className={clsx({[styles.disabled]: pathname === "/cart"})} href="/cart"><SvgCart /></Link>
-                    <div className={cartItems.length > 0 ? styles.navInfoCartFlag : styles.navInfoCartFlagWhite}>{cartItems.length > 0 && cartItems.length}</div>
+                    <div className={cartItems.length > 0 ? styles.navInfoCartFlag : styles.navInfoCartFlagWhite}>{cartItems.length > 0 && cartItems.length + cartItemsDetails.length}</div>
                     {login ? "" : <LoginForm />}
                 </div>
             </nav>
