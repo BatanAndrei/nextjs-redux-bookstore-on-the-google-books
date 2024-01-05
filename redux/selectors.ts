@@ -72,7 +72,8 @@ export const booksSlice = createSlice({
     },
 
     totalPriceReducer: (state) => {
-        state.totalPrice = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails]
+        state.totalPrice = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
+         
     }
 
     },

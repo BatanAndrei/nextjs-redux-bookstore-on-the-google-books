@@ -31,7 +31,7 @@ export default function Cart() {
         let indexDataSet = nodeTarget.dataset.btncount as string;
         dispatch(decreaseReducer(indexDataSet));
     };
-
+    
 
     return (
         <div className={styles.containerCart}>
