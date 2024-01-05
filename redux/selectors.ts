@@ -24,7 +24,8 @@ const initialState: TbooksInitState = {
     dataCartDetails: {
         itemsCartDetails: [],
     },
-    totalPrice: [],
+    totalArreyCart: [],
+    totalPrice: 0,
 };
 
 export const booksSlice = createSlice({
@@ -68,12 +69,11 @@ export const booksSlice = createSlice({
 
     decreaseReducer: (state, action) => {   
         let priceIndex = state.dataCartDetails.itemsCartDetails.findIndex((book) => book.id === action.payload);
-        if(priceIndex > -1) state.dataCartDetails.itemsCartDetails.splice(priceIndex, 1);
+        if(priceIndex > -1) state.dataCartDetails.itemsCartDetails.splice(priceIndex, 1); 
     },
 
     totalPriceReducer: (state) => {
-        state.totalPrice = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
-         
+        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     }
 
     },
@@ -108,7 +108,8 @@ export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksEx
 export const selectCategory = (state: RootState): string[] => state.booksExtraReducer.listCategories;
 export const selectCartItems = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCart.itemsCart;
 export const selectViewItemCount = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCartDetails.itemsCartDetails;
-export const selecTotalPrice = (state: RootState): IdataBooks[] => state.booksExtraReducer.totalPrice;
+export const selectTotalArreyCart = (state: RootState): IdataBooks[] => state.booksExtraReducer.totalArreyCart;
+export const selectTotalPrice = (state: RootState): number | undefined => state.booksExtraReducer.totalPrice;
 
 
 export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;

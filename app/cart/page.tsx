@@ -4,7 +4,7 @@ import styles from './cart.module.css'
 import Image from 'next/image';
 import { montserrat, openSans } from '@/app/layout';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { increaseReducer, decreaseReducer, selectCartItems,  selectViewItemCount, selecTotalPrice, totalPriceReducer } from '@/redux/selectors';
+import { increaseReducer, decreaseReducer, selectCartItems,  selectViewItemCount, selectTotalArreyCart, selectTotalPrice,  totalPriceReducer } from '@/redux/selectors';
 import { useEffect } from 'react';
 
 
@@ -12,12 +12,24 @@ export default function Cart() {
 
     const cartItems = useAppSelector(selectCartItems);
     const cartItemsDetails = useAppSelector(selectViewItemCount);
-    const totalPrice = useAppSelector(selecTotalPrice);
+    const totalArreyCart = useAppSelector(selectTotalArreyCart);
+    const totalPrice = useAppSelector(selectTotalPrice);
+
+    //console.log(totalPrice)
+
     const dispatch = useAppDispatch();
+
+    const getTotal = () => {
+        let totalPrice = 0;
+        totalArreyCart.forEach(item => {
+        totalPrice += item.saleInfo?.retailPrice?.amount ? item.saleInfo?.retailPrice?.amount * totalArreyCart.length : 0;
+        })
+        return {totalPrice}
+    }
 
     useEffect(() => {
         dispatch(totalPriceReducer())
-    }, [cartItems, cartItemsDetails])
+    }, [totalArreyCart.length])
 
 
     const heandlePlus = (e: React.MouseEvent<HTMLElement>) => {
@@ -99,7 +111,7 @@ export default function Cart() {
                 </div>
                 <h3 className={montserrat.className+' '+styles.deleveryInfo}>Shipping: delivery</h3>
             </div>)}
-            <h3 className={styles.totalPrice}>TOTAL PRICE: ${}</h3>
+            <h3 className={styles.totalPrice}>TOTAL PRICE: ${getTotal().totalPrice}</h3>
         </div>
     )
 }
