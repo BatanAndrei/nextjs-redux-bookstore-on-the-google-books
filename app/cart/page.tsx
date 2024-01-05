@@ -99,6 +99,7 @@ export default function Cart() {
                 </div>
                 <h3 className={montserrat.className+' '+styles.deleveryInfo}>Shipping: delivery</h3>
             </div>)}
+            <h3 className={styles.totalPrice}>TOTAL PRICE: ${}</h3>
         </div>
     )
 }
