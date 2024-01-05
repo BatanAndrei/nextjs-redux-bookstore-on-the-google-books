@@ -4,14 +4,20 @@ import styles from './cart.module.css'
 import Image from 'next/image';
 import { montserrat, openSans } from '@/app/layout';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { increaseReducer, decreaseReducer, selectCartItems,  selectViewItemCount} from '@/redux/selectors';
+import { increaseReducer, decreaseReducer, selectCartItems,  selectViewItemCount, selecTotalPrice, totalPriceReducer } from '@/redux/selectors';
+import { useEffect } from 'react';
 
 
 export default function Cart() {
 
     const cartItems = useAppSelector(selectCartItems);
     const cartItemsDetails = useAppSelector(selectViewItemCount);
+    const totalPrice = useAppSelector(selecTotalPrice);
     const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(totalPriceReducer())
+    }, [cartItems, cartItemsDetails])
 
 
     const heandlePlus = (e: React.MouseEvent<HTMLElement>) => {

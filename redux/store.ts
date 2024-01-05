@@ -14,7 +14,7 @@ export const store = configureStore({
         moveDotsReducer: booksSlice.reducer,
         decreaseReducer: booksSlice.reducer,
         increaseReducer: booksSlice.reducer,
-        viewReducer: booksSlice.reducer,
+        totalPriceReducer: booksSlice.reducer,
     }
 })
 

@@ -49,7 +49,7 @@ export type TbooksInitState = { // типы для обработки запро
     dataCartDetails: {
         itemsCartDetails: IdataBooks[],
     },
-    totalPrice: number,
+    totalPrice: IdataBooks[],
 };
 
 export interface IparamsFetch {
