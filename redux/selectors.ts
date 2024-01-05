@@ -67,9 +67,8 @@ export const booksSlice = createSlice({
     },
 
     decreaseReducer: (state, action) => {   
-        state.dataCartDetails.itemsCartDetails.forEach((el, i) => {
-            if(el.id === action.payload) state.dataCartDetails.itemsCartDetails.splice(i, 1)
-        }); 
+        let priceIndex = state.dataCartDetails.itemsCartDetails.findIndex((book) => book.id === action.payload);
+        if(priceIndex > -1) state.dataCartDetails.itemsCartDetails.splice(priceIndex, 1);
     },
 
     },
