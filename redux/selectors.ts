@@ -57,24 +57,25 @@ export const booksSlice = createSlice({
 
     addItemsCartReducer: (state, action) => {
         state.dataCart.itemsCart = [...state.dataCart.itemsCart, {...action.payload}];
+        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
 
     deleteItemsCartReducer: (state, action) => {
         state.dataCart.itemsCart = state.dataCart.itemsCart.filter(book => book.id !== action.payload);
+        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
 
     increaseReducer: (state, action) => {
         state.dataCartDetails.itemsCartDetails = [...state.dataCartDetails.itemsCartDetails, {...action.payload}];
+        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
 
     decreaseReducer: (state, action) => {   
         let priceIndex = state.dataCartDetails.itemsCartDetails.findIndex((book) => book.id === action.payload);
         if(priceIndex > -1) state.dataCartDetails.itemsCartDetails.splice(priceIndex, 1); 
+        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
 
-    totalPriceReducer: (state) => {
-        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
-    }
 
     },
 
@@ -118,4 +119,4 @@ export const selectSlider = (state: RootState): IdataSlider[] => state.sliderRed
 export const selectSliderIndex = (state: RootState): number => state.sliderReducer.sliderIndex;
 
 
-export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer, totalPriceReducer } = booksSlice.actions;
+export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer } = booksSlice.actions;

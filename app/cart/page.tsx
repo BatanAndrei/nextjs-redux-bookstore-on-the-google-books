@@ -4,8 +4,7 @@ import styles from './cart.module.css'
 import Image from 'next/image';
 import { montserrat, openSans } from '@/app/layout';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { increaseReducer, decreaseReducer, selectCartItems,  selectViewItemCount, selectTotalArreyCart, selectTotalPrice,  totalPriceReducer } from '@/redux/selectors';
-import { useEffect } from 'react';
+import { increaseReducer, decreaseReducer, selectCartItems,  selectViewItemCount, selectTotalArreyCart } from '@/redux/selectors';
 
 
 export default function Cart() {
@@ -13,23 +12,16 @@ export default function Cart() {
     const cartItems = useAppSelector(selectCartItems);
     const cartItemsDetails = useAppSelector(selectViewItemCount);
     const totalArreyCart = useAppSelector(selectTotalArreyCart);
-    const totalPrice = useAppSelector(selectTotalPrice);
-
-    //console.log(totalPrice)
-
+   
     const dispatch = useAppDispatch();
 
     const getTotal = () => {
         let totalPrice = 0;
         totalArreyCart.forEach(item => {
-        totalPrice += item.saleInfo?.retailPrice?.amount ? item.saleInfo?.retailPrice?.amount * totalArreyCart.length : 0;
+        totalPrice = item.saleInfo?.retailPrice?.amount ? item.saleInfo?.retailPrice?.amount * totalArreyCart.length : 0;
         })
         return {totalPrice}
     }
-
-    useEffect(() => {
-        dispatch(totalPriceReducer())
-    }, [totalArreyCart.length])
 
 
     const heandlePlus = (e: React.MouseEvent<HTMLElement>) => {
