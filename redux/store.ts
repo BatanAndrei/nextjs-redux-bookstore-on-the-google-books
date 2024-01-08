@@ -1,7 +1,42 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector, useDispatch } from "react-redux";
 import { booksSlice } from "@/redux/selectors";
+//import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+//import storage from 'redux-persist/lib/storage';
 
+
+
+/* const rootReducer = combineReducers({
+    booksExtraReducer: booksSlice.reducer,
+    loadDataReducer: booksSlice.reducer,
+    filterCategoryReducer: booksSlice.reducer,
+    sddItemsCartReducer: booksSlice.reducer,
+    deleteItemsCartReducer: booksSlice.reducer,
+    sliderReducer: booksSlice.reducer,
+    moveDotsReducer: booksSlice.reducer,
+    decreaseReducer: booksSlice.reducer,
+    increaseReducer: booksSlice.reducer,
+    totalPriceReducer: booksSlice.reducer,
+}); */
+
+
+/* const persistConfig = {
+    key: 'root',
+    storage: storage,
+} */
+
+//const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+/* export const store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+        },
+    }),
+}) */
+
+//export const persistor = persistStore(store)
 
 export const store = configureStore({
     reducer: {

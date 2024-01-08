@@ -40,6 +40,6 @@ export default function Theheader() {
                     {login ? "" : <LoginForm />}
                 </div>
             </nav>
-        </header>//totalCountBooks
+        </header>
     )
 }
