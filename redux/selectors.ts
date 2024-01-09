@@ -5,7 +5,9 @@ import { listCategories } from '@/datas/categoryData';
 import { sliderData } from '@/datas/sliderData';
 import { TbooksInitState, IdataBooks, IparamsFetch, IdataSlider } from '@/types/types';
 
-const initialState: TbooksInitState = {
+
+
+export const initialState: TbooksInitState = {
     sliderData,
     sliderIndex: 0,
     dataBooks: {
@@ -24,7 +26,7 @@ const initialState: TbooksInitState = {
     dataCartDetails: {
         itemsCartDetails: [],
     },
-    totalArreyCart: [],
+    generalArreyCart: [],
     totalPrice: 0,
 };
 
@@ -57,25 +59,25 @@ export const booksSlice = createSlice({
 
     addItemsCartReducer: (state, action) => {
         state.dataCart.itemsCart = [...state.dataCart.itemsCart, {...action.payload}];
-        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
+        state.generalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
 
     deleteItemsCartReducer: (state, action) => {
         state.dataCart.itemsCart = state.dataCart.itemsCart.filter(book => book.id !== action.payload);
-        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
+        state.dataCartDetails.itemsCartDetails = state.dataCartDetails.itemsCartDetails.filter(book => book.id !== action.payload);;
+        state.generalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
 
     increaseReducer: (state, action) => {
         state.dataCartDetails.itemsCartDetails = [...state.dataCartDetails.itemsCartDetails, {...action.payload}];
-        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
+        state.generalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
 
     decreaseReducer: (state, action) => {   
         let priceIndex = state.dataCartDetails.itemsCartDetails.findIndex((book) => book.id === action.payload);
         if(priceIndex > -1) state.dataCartDetails.itemsCartDetails.splice(priceIndex, 1); 
-        state.totalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
+        state.generalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
-
 
     },
 
@@ -109,7 +111,7 @@ export const selectDataBooks = (state: RootState): IdataBooks[] => state.booksEx
 export const selectCategory = (state: RootState): string[] => state.booksExtraReducer.listCategories;
 export const selectCartItems = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCart.itemsCart;
 export const selectViewItemCount = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCartDetails.itemsCartDetails;
-export const selectTotalArreyCart = (state: RootState): IdataBooks[] => state.booksExtraReducer.totalArreyCart;
+export const selectGeneralArreyCart = (state: RootState): IdataBooks[] => state.booksExtraReducer.generalArreyCart;
 export const selectTotalPrice = (state: RootState): number | undefined => state.booksExtraReducer.totalPrice;
 
 

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import styles from './btnLoadMore.module.css';
 import { useAppDispatch } from '@/redux/store';

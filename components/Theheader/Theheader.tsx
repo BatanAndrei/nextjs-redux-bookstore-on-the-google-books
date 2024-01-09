@@ -16,6 +16,7 @@ import { useAppSelector } from '@/redux/store';
 
 export default function Theheader() {
 
+
     const pathname = usePathname();
     const cartItems = useAppSelector(selectCartItems);
     const cartItemsDetails = useAppSelector(selectViewItemCount);

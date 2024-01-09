@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import styles from './btnBuy.module.css';
 import { useAppDispatch, useAppSelector } from '@/redux/store';

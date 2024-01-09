@@ -1,9 +1,11 @@
+
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector, useDispatch } from "react-redux";
 import { booksSlice } from "@/redux/selectors";
+import { loadState } from '../app/localStorage/localStorage';
 //import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 //import storage from 'redux-persist/lib/storage';
-
+//import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 /* const rootReducer = combineReducers({
@@ -17,28 +19,28 @@ import { booksSlice } from "@/redux/selectors";
     decreaseReducer: booksSlice.reducer,
     increaseReducer: booksSlice.reducer,
     totalPriceReducer: booksSlice.reducer,
-}); */
+});
 
 
-/* const persistConfig = {
+const persistConfig = {
     key: 'root',
-    storage: storage,
-} */
+    storage: AsyncStorage,
+}
 
-//const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-/* export const store = configureStore({
+export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: {
             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
         },
     }),
-}) */
+})
 
-//export const persistor = persistStore(store)
-
-export const store = configureStore({
+export const persistor = persistStore(store) */
+///////////////////////////////////////////////////////////////////////////
+/* export const store = configureStore({
     reducer: {
         booksExtraReducer: booksSlice.reducer,
         loadDataReducer: booksSlice.reducer,
@@ -49,9 +51,29 @@ export const store = configureStore({
         moveDotsReducer: booksSlice.reducer,
         decreaseReducer: booksSlice.reducer,
         increaseReducer: booksSlice.reducer,
-        totalPriceReducer: booksSlice.reducer,
-    }
-})
+        totalPriceReducer: booksSlice.reducer, 
+    },
+}) */
+//////////////////////////////////////////////////////preloadedState: loadState(),
+
+const reducers = combineReducers({
+    booksExtraReducer: booksSlice.reducer,
+    loadDataReducer: booksSlice.reducer,
+    filterCategoryReducer: booksSlice.reducer,
+    addItemsCartReducer: booksSlice.reducer,
+    deleteItemsCartReducer: booksSlice.reducer,
+    sliderReducer: booksSlice.reducer,
+    moveDotsReducer: booksSlice.reducer,
+    decreaseReducer: booksSlice.reducer,
+    increaseReducer: booksSlice.reducer,
+    totalPriceReducer: booksSlice.reducer,
+    });
+
+    export const store = configureStore({
+        devTools: true,
+        reducer: reducers,
+        preloadedState: loadState(),
+    });
 
 //выведение типов из хранилища RootState и RootDispatch 
 export type RootState = ReturnType<typeof store.getState>; //дает возможность не описывать типы редукторов

@@ -6,9 +6,17 @@ import { Montserrat, Open_Sans } from 'next/font/google';
 import './globals.css';
 import Theheader from '@/components/Theheader/Theheader';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/es/integration/react';
 import { store } from '@/redux/store';
+import debounce from "debounce";
+import { saveState } from '../app/localStorage/localStorage';
 //import { store, persistor } from '@/redux/store';
+//import { PersistGate } from 'redux-persist/es/integration/react';
+
+store.subscribe(
+    debounce(() => {
+        saveState(store.getState());
+    }, 800)
+);
 
 
 export const montserrat = Montserrat({ subsets: ['latin'] })
@@ -34,7 +42,7 @@ export default function RootLayout({
                 <Provider store={store}>
                     {/* <PersistGate loading={null} persistor={persistor}> */}
                         <body>
-                            {<Theheader />}
+                            <Theheader />
                             <main className={montserrat.className}>{children}</main>
                         </body>
                     {/* </PersistGate> */}
