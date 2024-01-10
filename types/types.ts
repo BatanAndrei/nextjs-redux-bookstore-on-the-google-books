@@ -57,6 +57,7 @@ export type TbooksInitState = { // типы для обработки запро
     passDirty: boolean,
     emailError: string,
     passError: string,
+    validForm: boolean,
 };
 
 export interface IparamsFetch {

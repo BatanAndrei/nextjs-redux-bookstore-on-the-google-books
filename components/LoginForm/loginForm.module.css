@@ -50,4 +50,14 @@
     color: white;
     border: none;
     background-color: #9E98DC;
+    cursor: pointer;
+}
+
+.buttonDisable {
+    margin-top: 61px;
+    width: 176px;
+    height: 32px;
+    color: rgb(98, 95, 95);
+    border: none;
+    background-color: #a2a0b5;
 }

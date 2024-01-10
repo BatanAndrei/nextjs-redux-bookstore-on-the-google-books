@@ -73,6 +73,7 @@ const reducers = combineReducers({
     passReducer: booksSlice.reducer, 
     emailErrorReducer: booksSlice.reducer, 
     passErrorReducer: booksSlice.reducer,
+    validFormReducer: booksSlice.reducer,
     });
 
     export const store = configureStore({

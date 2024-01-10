@@ -2,8 +2,9 @@
 
 import styles from './loginForm.module.css';
 import { montserrat } from '../../app/layout';
-import { loginReducer, selectEmailDirty, selectPasswordDirty, selectEmailError, selectPassError, emailDirtyReducer, passDirtyReducer, selectEmail, selectPassword, emailReducer, passReducer, emailErrorReducer, passErrorReducer } from '@/redux/selectors';
+import { loginReducer, selectEmailDirty, selectPasswordDirty, selectEmailError, selectPassError, emailDirtyReducer, passDirtyReducer, selectEmail, selectPassword, emailReducer, passReducer, emailErrorReducer, passErrorReducer, selectValidForm, validFormReducer } from '@/redux/selectors';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
+import { useEffect } from 'react';
 
 
 export default function LoginForm() {
@@ -16,15 +17,16 @@ export default function LoginForm() {
     const passError = useAppSelector(selectPassError);
     const email = useAppSelector(selectEmail);
     const password = useAppSelector(selectPassword);
+    const validForm = useAppSelector(selectValidForm);
 
     const blurHeandler = (e: React.FocusEvent<HTMLInputElement>) => {
         switch (e.target.name) {
             case 'email': 
-                dispatch(emailDirtyReducer());
+                dispatch(emailDirtyReducer(true));
                 break;
 
             case 'password':
-                dispatch(passDirtyReducer());
+                dispatch(passDirtyReducer(true));
                 break;
         }
     };
@@ -52,7 +54,16 @@ export default function LoginForm() {
         }else {
             dispatch(passErrorReducer(''));
         }
-    }
+    };
+
+    useEffect(() => {
+        if(emailError || passError) {
+            dispatch(validFormReducer(false))
+        }else {
+            dispatch(validFormReducer(true))
+        }
+
+    }, [emailError, passError])
 
     const heandleLogin = (e: React.MouseEvent<HTMLElement>) => {
         dispatch(loginReducer());
@@ -73,7 +84,7 @@ export default function LoginForm() {
 
                 {(passDirty && passError) && <p className={montserrat.className+' '+styles.warn}>{passError}</p>}
 
-                <button className={styles.button} type="submit" onClick={(e) => heandleLogin(e)}>LOG IN</button>
+                <button disabled={!validForm} className={validForm ? styles.button : styles.buttonDisable} type="submit" onClick={(e) => heandleLogin(e)}>LOG IN</button>
             </form>
         </div>
     )
