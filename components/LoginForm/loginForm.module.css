@@ -38,10 +38,6 @@
 }
 
 .warn {
-    display: none;
-    position: absolute;
-    top: 180px;
-    left: 12px;
     font-weight: 700;
     font-size: 8px;
     color: #FF353A;

@@ -51,6 +51,12 @@ export type TbooksInitState = { // типы для обработки запро
     },
     generalArreyCart: IdataBooks[],
     login: boolean,
+    email: string,
+    password: string,
+    emailDirty: boolean,
+    passDirty: boolean,
+    emailError: string,
+    passError: string,
 };
 
 export interface IparamsFetch {
