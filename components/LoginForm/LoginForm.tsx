@@ -74,6 +74,7 @@ export default function LoginForm() {
         <div className={styles.containerForm}>
             <h2 className={montserrat.className+' '+styles.titleLogin}>Log in</h2>
             <form className={styles.form}>
+
                 <h2 className={montserrat.className+' '+styles.titleInput}>Email</h2>
                 <input onChange={e => emailHeandler(e)} value={email} onBlur={e => blurHeandler(e)} className={styles.input} type="email" name="email" placeholder="Enter your email..." />
 
@@ -85,6 +86,7 @@ export default function LoginForm() {
                 {(passDirty && passError) && <p className={montserrat.className+' '+styles.warn}>{passError}</p>}
 
                 <button disabled={!validForm} className={validForm ? styles.button : styles.buttonDisable} type="submit" onClick={(e) => heandleLogin(e)}>LOG IN</button>
+                
             </form>
         </div>
     )
