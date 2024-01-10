@@ -97,6 +97,21 @@ export const booksSlice = createSlice({
         state.passDirty = true;
     },
 
+    emailReducer: (state, action) => {
+        state.email = action.payload;
+    },
+
+    passReducer: (state, action) => {
+        state.password = action.payload;
+    },
+    emailErrorReducer: (state, action) => {
+        state.emailError = action.payload;
+    },
+
+    passErrorReducer: (state, action) => {
+        state.passError = action.payload;
+    },
+
     },
 
     extraReducers: (builder) => {
@@ -136,6 +151,8 @@ export const selectEmailDirty = (state: RootState): boolean => state.booksExtraR
 export const selectPasswordDirty = (state: RootState): boolean => state.booksExtraReducer.passDirty;
 export const selectEmailError = (state: RootState): string => state.booksExtraReducer.emailError;
 export const selectPassError = (state: RootState): string => state.booksExtraReducer.passError;
+export const selectEmail = (state: RootState): string => state.booksExtraReducer.email;
+export const selectPassword = (state: RootState): string => state.booksExtraReducer.password;
 
 
 
@@ -146,4 +163,4 @@ export const selectSliderIndex = (state: RootState): number => state.sliderReduc
 export const selectLogin = (state: RootState): boolean => state.loginReducer.login;
 
 
-export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer, loginReducer, emailDirtyReducer, passDirtyReducer } = booksSlice.actions;
+export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer, loginReducer, emailDirtyReducer, passDirtyReducer, emailReducer, passReducer, emailErrorReducer, passErrorReducer } = booksSlice.actions;
