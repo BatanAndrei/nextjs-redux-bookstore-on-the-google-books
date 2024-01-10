@@ -58,6 +58,8 @@ export type TbooksInitState = { // типы для обработки запро
     emailError: string,
     passError: string,
     validForm: boolean,
+    mailProfile: string,
+    nameProfile: string,
 };
 
 export interface IparamsFetch {

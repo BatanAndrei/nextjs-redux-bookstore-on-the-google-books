@@ -1,8 +1,16 @@
+'use client'
+
 import styles from './profile.module.css';
 import Image from 'next/image';
 import image_profile from '../../public/images/image_profile.png';
+import { useAppSelector} from '@/redux/store';
+import { selectMailProfile, selecNameProfile } from '@/redux/selectors';
 
 export default function Profile() {
+
+    const MailProfile = useAppSelector(selectMailProfile);
+    const nameProfile = useAppSelector(selecNameProfile);
+
     return (
         <div className={styles.containerProfile}>
             <div className={styles.infoProfile}>
@@ -11,9 +19,9 @@ export default function Profile() {
                     <Image src={image_profile} alt='image_profile' width={235} height={235} className={styles.infoProfileImage}></Image>
                     <div className={styles.infoProfileData}>
                         <h2 className={styles.infoProfileDataTitle}>YOUR NAME</h2>
-                        <h3 className={styles.infoProfileDataText}>Batan Andrei</h3>
+                        <h3 className={styles.infoProfileDataText}>{nameProfile}</h3>
                         <h2 className={styles.infoProfileDataTitle}>YOUR EMAIL</h2>
-                        <h3 className={styles.infoProfileDataText}>yabatan777@gmail.com</h3>
+                        <h3 className={styles.infoProfileDataText}>{MailProfile}</h3>
                         <button className={styles.infoProfileButton}>EDIT PROFILE</button>
                     </div>
                 </div>

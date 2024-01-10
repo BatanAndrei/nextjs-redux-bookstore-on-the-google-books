@@ -1,14 +1,15 @@
 
-
 import styles from './loginForm.module.css';
 import { montserrat } from '../../app/layout';
-import { loginReducer, selectEmailDirty, selectPasswordDirty, selectEmailError, selectPassError, emailDirtyReducer, passDirtyReducer, selectEmail, selectPassword, emailReducer, passReducer, emailErrorReducer, passErrorReducer, selectValidForm, validFormReducer } from '@/redux/selectors';
+import { loginReducer, selectEmailDirty, selectPasswordDirty, selectEmailError, selectPassError, emailDirtyReducer, passDirtyReducer, selectEmail, selectPassword, emailReducer, passReducer, emailErrorReducer, passErrorReducer, selectValidForm, validFormReducer, setMailProfile, setNameProfile } from '@/redux/selectors';
 import { useAppDispatch, useAppSelector } from '@/redux/store';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 
 export default function LoginForm() {
 
+    const { push } = useRouter();
     const dispatch = useAppDispatch();
 
     const emailDirty = useAppSelector(selectEmailDirty);
@@ -18,6 +19,7 @@ export default function LoginForm() {
     const email = useAppSelector(selectEmail);
     const password = useAppSelector(selectPassword);
     const validForm = useAppSelector(selectValidForm);
+
 
     const blurHeandler = (e: React.FocusEvent<HTMLInputElement>) => {
         switch (e.target.name) {
@@ -63,12 +65,37 @@ export default function LoginForm() {
             dispatch(validFormReducer(true))
         }
 
-    }, [emailError, passError])
+    }, [emailError, passError]) 
 
-    const heandleLogin = (e: React.MouseEvent<HTMLElement>) => {
+    const heandleLogin = async  (e: React.MouseEvent<HTMLElement>) => {
         dispatch(loginReducer());
         e.preventDefault();
-    };
+
+        const res = await fetch('http://localhost:3000//api/auth', {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({ 'email': email, 'password': password }),
+        
+        });
+        if (res.status !== 200) {
+            // push('/404');  
+    
+        }else {
+            const receivedData = await res.json();
+            if (!receivedData.error) {
+            dispatch(setMailProfile(receivedData.mail));
+            dispatch(setNameProfile(receivedData.name));
+            push(`/profile`);
+            }else {
+              // push('/404');
+            }
+        }
+    }
+    
+
 
     return (
         <div className={styles.containerForm}>
@@ -81,12 +108,12 @@ export default function LoginForm() {
                 {(emailDirty && emailError) && <p className={montserrat.className+' '+styles.warn}>{emailError}</p>}
 
                 <h2 className={montserrat.className+' '+styles.titleInput}>Password</h2>
-                <input onChange={e => passHeandle(e)} value={password} onBlur={e => blurHeandler(e)} className={styles.input} type="password" name="password" placeholder="Enter your password..." />
+                <input onChange={e => passHeandle(e)} value={password}  onBlur={e => blurHeandler(e)} className={styles.input} type="password" name="password" placeholder="Enter your password..." />
 
                 {(passDirty && passError) && <p className={montserrat.className+' '+styles.warn}>{passError}</p>}
 
                 <button disabled={!validForm} className={validForm ? styles.button : styles.buttonDisable} type="submit" onClick={(e) => heandleLogin(e)}>LOG IN</button>
-                
+
             </form>
         </div>
     )

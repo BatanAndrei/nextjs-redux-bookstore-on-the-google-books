@@ -1,9 +1,8 @@
 
-
 import { useEffect} from "react";
 import { fetchBooks } from '@/redux/fetchGet';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { selectDataBooks, selectLoadParams } from '@/redux/selectors';
+import { selectDataBooks, selectLoadParams, selectLogin } from '@/redux/selectors';
 import { montserrat, openSans } from '@/app/layout';
 import Image from "next/image";
 import BtnLoadMore from '@/components/BtnLoadMore/BtnLoadMore';
@@ -13,6 +12,7 @@ import BtnBuy from '@/components/BtnBuy/BtnBuy';
 
 export default function Books() {
 
+    const login = useAppSelector(selectLogin);
     const loadParams = useAppSelector(selectLoadParams);
     const dataListBooks = useAppSelector(selectDataBooks);
     const dispatch = useAppDispatch();
@@ -23,10 +23,9 @@ export default function Books() {
     }, [loadParams]);
 
     
-    
     return (
         <div className={styles.containerBooks}>
-            {dataListBooks.map((item) => <div key={item.id} className={styles.bookPosition}>
+            {login && dataListBooks.map((item) => <div key={item.id} className={styles.bookPosition}>
                 <Image className={`${item.volumeInfo?.imageLinks?.thumbnail ? styles.bookPositionImage : styles.bookPositionImageNone}`} src={`${item.volumeInfo?.imageLinks?.thumbnail}`} alt={`${item.volumeInfo?.title}`} width={212} height={310} />
                 <div className={styles.bookPositionInfo}>
                     <h2 className={openSans.className+' '+styles.bookPositionInfoAuthor}>{item.volumeInfo?.authors}</h2>

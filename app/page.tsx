@@ -1,3 +1,4 @@
+
 import styles from './page.module.css';
 import Slider from '@/components/Slider/Slider';
 import FilterBooksCategory from '@/components/FilterBooksCategory/FilterBooksCategory';

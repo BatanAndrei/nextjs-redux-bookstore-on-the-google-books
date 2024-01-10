@@ -74,6 +74,8 @@ const reducers = combineReducers({
     emailErrorReducer: booksSlice.reducer, 
     passErrorReducer: booksSlice.reducer,
     validFormReducer: booksSlice.reducer,
+    setMailProfile: booksSlice.reducer,
+    setNameProfile: booksSlice.reducer,
     });
 
     export const store = configureStore({

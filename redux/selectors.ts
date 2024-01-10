@@ -35,6 +35,8 @@ export const initialState: TbooksInitState = {
     emailError: 'Email не может быть пустым',
     passError: 'Пороль не может быть пустым',
     validForm: false,
+    mailProfile: '',
+    nameProfile: '',
 };
 
 export const booksSlice = createSlice({
@@ -115,7 +117,15 @@ export const booksSlice = createSlice({
 
     validFormReducer: (state, action) => {
         state.validForm = action.payload;
-    }
+    },
+
+    setMailProfile: (state, action) => {
+        state.mailProfile = action.payload;
+    }, 
+
+    setNameProfile: (state, action) => {
+        state.nameProfile = action.payload;
+    },
 
     },
 
@@ -152,6 +162,7 @@ export const selectViewItemCount = (state: RootState): IdataBooks[] => state.boo
 export const selectGeneralArreyCart = (state: RootState): IdataBooks[] => state.booksExtraReducer.generalArreyCart;
 
 
+
 export const selectEmailDirty = (state: RootState): boolean => state.booksExtraReducer.emailDirty;
 export const selectPasswordDirty = (state: RootState): boolean => state.booksExtraReducer.passDirty;
 export const selectEmailError = (state: RootState): string => state.booksExtraReducer.emailError;
@@ -159,6 +170,8 @@ export const selectPassError = (state: RootState): string => state.booksExtraRed
 export const selectEmail = (state: RootState): string => state.booksExtraReducer.email;
 export const selectPassword = (state: RootState): string => state.booksExtraReducer.password;
 export const selectValidForm = (state: RootState): boolean => state.booksExtraReducer.validForm;
+export const selectMailProfile = (state: RootState): string => state.booksExtraReducer.mailProfile;
+export const selecNameProfile = (state: RootState): string => state.booksExtraReducer.nameProfile;
 
 
 
@@ -169,4 +182,4 @@ export const selectSliderIndex = (state: RootState): number => state.sliderReduc
 export const selectLogin = (state: RootState): boolean => state.loginReducer.login;
 
 
-export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer, loginReducer, emailDirtyReducer, passDirtyReducer, emailReducer, passReducer, emailErrorReducer, passErrorReducer, validFormReducer } = booksSlice.actions;
+export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer, loginReducer, emailDirtyReducer, passDirtyReducer, emailReducer, passReducer, emailErrorReducer, passErrorReducer, validFormReducer, setNameProfile, setMailProfile } = booksSlice.actions;

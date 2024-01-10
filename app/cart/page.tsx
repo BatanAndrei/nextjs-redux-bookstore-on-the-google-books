@@ -14,6 +14,7 @@ export default function Cart() {
     const cartItemsDetails = useAppSelector(selectViewItemCount);
     const generalArreyCart = useAppSelector(selectGeneralArreyCart);
     
+    
     const dispatch = useAppDispatch();
 
     const getTotal = () => {

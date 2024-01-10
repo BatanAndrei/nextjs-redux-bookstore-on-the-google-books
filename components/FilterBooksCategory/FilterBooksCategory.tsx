@@ -3,13 +3,14 @@
 import React from 'react';
 import styles from './filterBooksCategory.module.css';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
-import { selectCategory, selectCategoryParams, filterCategoryReducer } from '@/redux/selectors';
+import { selectCategory, selectCategoryParams, filterCategoryReducer, selectLogin } from '@/redux/selectors';
 import { montserrat } from '@/app/layout';
 import Books from '@/components/Books/Books';
 
 
 export default function FilterBooksCategory() {
 
+    const login = useAppSelector(selectLogin);
     const category = useAppSelector(selectCategory);
     const subjectCategory = useAppSelector(selectCategoryParams);
     const dispatch = useAppDispatch()
@@ -22,13 +23,15 @@ export default function FilterBooksCategory() {
     }
 
     return (
-        <div className={styles.containerShowcase}>
-            <div className={styles.categoryBooks}>
-                <ul className={montserrat.className+ ' ' +styles.categoryBooksList}>
-                    {category.map((item, index) => <li key={index} data-category={item} onClick={(e) => handleFilterCategory(e)} className={subjectCategory === item ? styles.categoryActive : styles.categoryBooksItem }>{item}</li>)} 
-                </ul>
-            </div>
-            <Books />
-        </div>
+        <>
+            {login && <div className={styles.containerShowcase}>
+                <div className={styles.categoryBooks}>
+                    <ul className={montserrat.className+ ' ' +styles.categoryBooksList}>
+                        {category.map((item, index) => <li key={index} data-category={item} onClick={(e) => handleFilterCategory(e)} className={subjectCategory === item ? styles.categoryActive : styles.categoryBooksItem }>{item}</li>)} 
+                    </ul>
+                </div>
+                <Books />
+            </div>}
+        </>
     )
 }

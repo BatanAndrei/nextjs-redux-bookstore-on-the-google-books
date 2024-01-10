@@ -38,6 +38,7 @@
 }
 
 .warn {
+    margin: 0px;
     font-weight: 700;
     font-size: 8px;
     color: #FF353A;
@@ -54,7 +55,7 @@
 }
 
 .buttonDisable {
-    margin-top: 61px;
+    margin-top: 50px;
     width: 176px;
     height: 32px;
     color: rgb(98, 95, 95);
