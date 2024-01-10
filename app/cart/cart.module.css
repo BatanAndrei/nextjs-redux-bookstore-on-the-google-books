@@ -170,5 +170,14 @@
 }
 
 .totalPrice {
-    margin: 117px 0px 77px 145px;
+    margin: 117px 0px 19px 145px;
+}
+
+.button {
+    margin: 0px 0px 50px 145px;
+    width: 176px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid #4C3DB2;
+    color: #4C3DB2;
 }

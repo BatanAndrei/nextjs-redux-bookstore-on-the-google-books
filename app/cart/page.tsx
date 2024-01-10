@@ -2,6 +2,7 @@
 
 import styles from './cart.module.css'
 import Image from 'next/image';
+import Link from 'next/link';
 import { montserrat, openSans } from '@/app/layout';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
 import { increaseReducer, decreaseReducer, selectCartItems, selectViewItemCount, selectGeneralArreyCart } from '@/redux/selectors';
@@ -104,6 +105,7 @@ export default function Cart() {
                 <h3 className={montserrat.className+' '+styles.deleveryInfo}>Shipping: delivery</h3>
             </div>)}
             <h3 className={styles.totalPrice}>TOTAL PRICE: ${getTotal().totalPrice.toFixed(2)}</h3>
+            <Link href="/"><button className={styles.button}>CHECKOUT</button></Link>
         </div>
     )
 }

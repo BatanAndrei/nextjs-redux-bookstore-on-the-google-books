@@ -17,7 +17,7 @@ export default function Books() {
     const dataListBooks = useAppSelector(selectDataBooks);
     const dispatch = useAppDispatch();
 
-    //console.log(dataListBooks)
+    
     useEffect(() => {
         dispatch(fetchBooks(loadParams));
     }, [loadParams]);
