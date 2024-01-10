@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import debounce from "debounce";
 import { saveState } from '../app/localStorage/localStorage';
+import { HydrationProvider, useHydrated, Server, Client } from "react-hydration-provider";
 //import { store, persistor } from '@/redux/store';
 //import { PersistGate } from 'redux-persist/es/integration/react';
 
@@ -41,10 +42,14 @@ export default function RootLayout({
             <html lang="en">
                 <Provider store={store}>
                     {/* <PersistGate loading={null} persistor={persistor}> */}
-                        <body>
-                            <Theheader />
-                            <main className={montserrat.className}>{children}</main>
-                        </body>
+                        <HydrationProvider>
+                            <body>
+                                <Client>
+                                    <Theheader />
+                                    <main className={montserrat.className}>{children}</main>
+                                </Client>
+                            </body>
+                        </HydrationProvider>
                     {/* </PersistGate> */}
                 </Provider>
             </html>
