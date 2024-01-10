@@ -10,18 +10,17 @@ import SvgCart from '@/public/svgComponents/svgCart';
 import { clsx } from 'clsx';
 import { usePathname } from 'next/navigation'
 import LoginForm from '@/components/LoginForm/LoginForm';
-import { selectCartItems, selectViewItemCount } from '@/redux/selectors';
+import { selectCartItems, selectViewItemCount, selectLogin } from '@/redux/selectors';
 import { useAppSelector } from '@/redux/store';
 
 
 export default function Theheader() {
 
-
     const pathname = usePathname();
     const cartItems = useAppSelector(selectCartItems);
     const cartItemsDetails = useAppSelector(selectViewItemCount);
+    const login = useAppSelector(selectLogin);
 
-    let login: boolean = true;
     
     return (
         <header className={styles.header}>

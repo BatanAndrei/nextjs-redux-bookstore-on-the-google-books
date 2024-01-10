@@ -66,6 +66,7 @@ const reducers = combineReducers({
     moveDotsReducer: booksSlice.reducer,
     decreaseReducer: booksSlice.reducer,
     increaseReducer: booksSlice.reducer,
+    loginReducer: booksSlice.reducer,
     });
 
     export const store = configureStore({

@@ -27,7 +27,7 @@ export const initialState: TbooksInitState = {
         itemsCartDetails: [],
     },
     generalArreyCart: [],
-    totalPrice: 0,
+    login: false,
 };
 
 export const booksSlice = createSlice({
@@ -79,6 +79,10 @@ export const booksSlice = createSlice({
         state.generalArreyCart = [...state.dataCart.itemsCart, ...state.dataCartDetails.itemsCartDetails];
     },
 
+    loginReducer: (state) => {
+        state.login = true;
+    }
+
     },
 
     extraReducers: (builder) => {
@@ -118,6 +122,7 @@ export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDa
 export const selectCategoryParams = (state: RootState): string => state.filterCategoryReducer.paramsFetch.subject;
 export const selectSlider = (state: RootState): IdataSlider[] => state.sliderReducer.sliderData;
 export const selectSliderIndex = (state: RootState): number => state.sliderReducer.sliderIndex;
+export const selectLogin = (state: RootState): boolean => state.loginReducer.login;
 
 
-export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer} = booksSlice.actions;
+export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer, loginReducer } = booksSlice.actions;

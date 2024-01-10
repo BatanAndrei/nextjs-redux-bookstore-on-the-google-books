@@ -50,7 +50,7 @@ export type TbooksInitState = { // типы для обработки запро
         itemsCartDetails: IdataBooks[],
     },
     generalArreyCart: IdataBooks[],
-    totalPrice: number,
+    login: boolean,
 };
 
 export interface IparamsFetch {
