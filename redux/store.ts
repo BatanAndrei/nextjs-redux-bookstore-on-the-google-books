@@ -66,7 +66,6 @@ const reducers = combineReducers({
     moveDotsReducer: booksSlice.reducer,
     decreaseReducer: booksSlice.reducer,
     increaseReducer: booksSlice.reducer,
-    totalPriceReducer: booksSlice.reducer,
     });
 
     export const store = configureStore({

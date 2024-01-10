@@ -12,17 +12,18 @@ export default function Cart() {
     const cartItems = useAppSelector(selectCartItems);
     const cartItemsDetails = useAppSelector(selectViewItemCount);
     const generalArreyCart = useAppSelector(selectGeneralArreyCart);
-   
+    
     const dispatch = useAppDispatch();
 
     const getTotal = () => {
+        let itemTotal = 0;
         let totalPrice = 0;
         generalArreyCart.forEach(item => {
-        totalPrice = item.saleInfo?.retailPrice?.amount ? item.saleInfo?.retailPrice?.amount * generalArreyCart.length : 0;
+        itemTotal = item.saleInfo?.retailPrice?.amount ? item.saleInfo?.retailPrice?.amount * generalArreyCart.length : 0;
         })
+        totalPrice = totalPrice + itemTotal;
         return {totalPrice}
     }
-
 
     const heandlePlus = (e: React.MouseEvent<HTMLElement>) => {
         let nodeTarget = e.target as HTMLDivElement;
@@ -36,7 +37,6 @@ export default function Cart() {
         dispatch(decreaseReducer(indexDataSet));
     };
     
-
     return (
         <div className={styles.containerCart}>
             <h2 className={styles.titleCart}>SHOPPING CART</h2>

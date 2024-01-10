@@ -112,7 +112,6 @@ export const selectCategory = (state: RootState): string[] => state.booksExtraRe
 export const selectCartItems = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCart.itemsCart;
 export const selectViewItemCount = (state: RootState): IdataBooks[] => state.booksExtraReducer.dataCartDetails.itemsCartDetails;
 export const selectGeneralArreyCart = (state: RootState): IdataBooks[] => state.booksExtraReducer.generalArreyCart;
-export const selectTotalPrice = (state: RootState): number | undefined => state.booksExtraReducer.totalPrice;
 
 
 export const selectLoadParams = (state: RootState): IparamsFetch => state.loadDataReducer.paramsFetch;
@@ -121,4 +120,4 @@ export const selectSlider = (state: RootState): IdataSlider[] => state.sliderRed
 export const selectSliderIndex = (state: RootState): number => state.sliderReducer.sliderIndex;
 
 
-export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer } = booksSlice.actions;
+export const { loadDataReducer, filterCategoryReducer, addItemsCartReducer, deleteItemsCartReducer, sliderReducer, moveDotsReducer, increaseReducer, decreaseReducer} = booksSlice.actions;
