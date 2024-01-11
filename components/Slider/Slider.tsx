@@ -27,7 +27,7 @@ useEffect(() => {
 
                 return (
                     <div className={indexSlider === itemIndex ? styles.positionActive : styles.positionSlide} key={item.id}>
-                        <Image src={item.image} alt={item.image} width={1120} height={702}></Image>
+                        <Image src={item.image} alt={'BUNNER'} width={1120} height={702}></Image>
                     </div>
                 )
     })}

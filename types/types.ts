@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
+import { StaticImageData } from 'next/image';
 
 export interface IdataSlider {
     id: number,
-    image: string,
+    image: StaticImageData,
 }
 
 export type TchildrenProps = {
