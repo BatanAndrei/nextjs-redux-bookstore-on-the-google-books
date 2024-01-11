@@ -8,7 +8,7 @@ import { selectMailProfile, selecNameProfile } from '@/redux/selectors';
 
 export default function Profile() {
 
-    const MailProfile = useAppSelector(selectMailProfile);
+    const mailProfile = useAppSelector(selectMailProfile);
     const nameProfile = useAppSelector(selecNameProfile);
 
     return (
@@ -21,7 +21,7 @@ export default function Profile() {
                         <h2 className={styles.infoProfileDataTitle}>YOUR NAME</h2>
                         <h3 className={styles.infoProfileDataText}>{nameProfile}</h3>
                         <h2 className={styles.infoProfileDataTitle}>YOUR EMAIL</h2>
-                        <h3 className={styles.infoProfileDataText}>{MailProfile}</h3>
+                        <h3 className={styles.infoProfileDataText}>{mailProfile}</h3>
                         <button className={styles.infoProfileButton}>EDIT PROFILE</button>
                     </div>
                 </div>
