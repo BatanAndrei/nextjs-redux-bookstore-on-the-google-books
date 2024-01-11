@@ -5,7 +5,7 @@ import styles from './slider.module.css';
 import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/redux/store';
 import { selectSlider, selectSliderIndex, sliderReducer, moveDotsReducer } from '@/redux/selectors';
-import { sliderData } from '@/datas/sliderData';
+//import { sliderData } from '@/datas/sliderData';
 
 
 export default function Slider() {
@@ -23,7 +23,7 @@ useEffect(() => {
 
     return (
         <div className={styles.containerSlider}>
-            {sliderData.map((item, itemIndex) => {
+            {imageSlider.map((item, itemIndex) => {
 
                 return (
                     <div className={indexSlider === itemIndex ? styles.positionActive : styles.positionSlide} key={item.id}>
