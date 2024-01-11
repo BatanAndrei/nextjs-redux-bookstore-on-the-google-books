@@ -19,9 +19,9 @@ export default function Profile() {
                     <Image src={image_profile} alt='image_profile' width={235} height={235} className={styles.infoProfileImage}></Image>
                     <div className={styles.infoProfileData}>
                         <h2 className={styles.infoProfileDataTitle}>YOUR NAME</h2>
-                        <h3 className={styles.infoProfileDataText}>{nameProfile}</h3>
+                        <h3 className={styles.infoProfileDataText}>John Smith</h3>
                         <h2 className={styles.infoProfileDataTitle}>YOUR EMAIL</h2>
-                        <h3 className={styles.infoProfileDataText}>{mailProfile}</h3>
+                        <h3 className={styles.infoProfileDataText}>example@mail.com</h3>
                         <button className={styles.infoProfileButton}>EDIT PROFILE</button>
                     </div>
                 </div>
